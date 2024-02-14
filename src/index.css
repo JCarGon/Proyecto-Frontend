@@ -1,0 +1,17 @@
+body {
+  background-image: url('../src/resources/fondo.svg');
+  background-repeat: no-repeat; /* Evita la repetición del fondo */
+  background-size: cover; /* Ajusta el tamaño del fondo para cubrir toda la página */
+  background-attachment: fixed; /* Fija el fondo en su posición mientras se desplaza la página */
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,41 @@
+.footer {
+  text-align: center;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-logo {
+  cursor: pointer;
+  width: 200px;
+}
+
+.contact-info {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.contact-info p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.social-icons {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.social-icons a img {
+  margin-right: 10px;
+  width: 50px;
+  transition: all 400ms ease;
+}
+
+.social-icons a img:hover {transform: scale(1.2);}

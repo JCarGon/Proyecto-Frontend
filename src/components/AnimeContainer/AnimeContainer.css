@@ -1,0 +1,29 @@
+.image-grid {
+  display: grid;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.images-group {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logoDBZ {}
+.LogoAOT {}
+.LogoKNY{}
+.LogoMHA{}
+.LogoNaruto{}
+.LogoOnePiece{}
+
+.logoDBZ, .LogoAOT, .LogoKNY, .LogoMHA, .LogoNaruto, .LogoOnePiece {
+  transition: transform 300ms ease-out;
+}
+
+.logoDBZ:hover, .LogoAOT:hover, .LogoKNY:hover, .LogoMHA:hover, .LogoNaruto:hover, .LogoOnePiece:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 300ms ease-out;
+}
