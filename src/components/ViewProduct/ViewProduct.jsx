@@ -6,7 +6,7 @@ function ViewProduct({ figureId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost/v1/figures/${figureId}`);
+        const response = await fetch(`http://localhost:7000/v1/figures/${figureId}`);
         const data = await response.json();
         console.log(data);
         setFigureData(data);
@@ -30,7 +30,7 @@ function ViewProduct({ figureId }) {
       <div className="product-title">{name}</div>
       <div className="product-character">Character: {character}</div>
       <div className="product-company">Company: {company}</div>
-      <div className="product-price">Price: ${price}</div>
+      <div className="product-price">Precio: {price}€</div>
       <div className="product-dimensions">Dimensions: {dimensions}</div>
       <div className="product-material">Material: {material}</div>
       <div className="product-brand">Brand: {brand}</div>

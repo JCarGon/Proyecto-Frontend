@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LadingPage from '../LandingPage/LandingPage';
 import AnimesPage from '../AnimesPage/AnimesPage';
+import AnimePage from '../AnimePage/AnimePage';
 import ProductPage from '../ProductPage/ProductPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
@@ -10,9 +11,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<LadingPage />} />
-      <Route path='/figures' element={<AnimesPage />}/>
-      <Route path='/figures/:anime' />
-      <Route path='/figures/:anime/:id' element={<ProductPage />} />
+      <Route path='/animes' element={<AnimesPage />}/>
+      <Route path="/animes/:animeName" element={<AnimePage />} />
+      <Route path='/animes/:animeName/:id' element={<ProductPage />} />
       <Route path='/WAW' />
       <Route path='/contact' />
       <Route path='/faqs' />

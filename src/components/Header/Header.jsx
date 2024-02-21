@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import logo from "../../resources/logo.png";
-import search from "../../resources/search.png";
-import user from "../../resources/user.svg";
-import cart from "../../resources/cart.svg";
+import logo from "../../images/logo.png";
+import search from "../../images/search.png";
+import user from "../../images/user.svg";
+import cart from "../../images/cart.svg";
 import "./Header.css";
 
 function Header() {

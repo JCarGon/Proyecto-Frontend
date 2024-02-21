@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import Product from '../Product/Product';
-import promoImage from '../../resources/promoImage.png';
+import promoImage from '../../images/promoImage.png';
 import './PrincipalContainer.css';
 
 function PrincipalContainer() {
@@ -8,10 +9,15 @@ function PrincipalContainer() {
   const [page, setPage] = useState(1);
   const pageSize = 4;
 
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const { animeName } = useParams() || {};
+
   useEffect(() => {
     const fetchInitialFigures = async () => {
       try {
-        const response = await fetch(`http://localhost:7000/v1/figures?page=${page}&pageSize=${pageSize}`);
+        const animeQueryParam = animeName && !isHomePage ? `&animeName=${animeName}` : '';
+        const response = await fetch(`http://localhost:7000/v1/figures?page=${page}&pageSize=${pageSize}${animeQueryParam}`);
         const data = await response.json();
 
         setFigureList(data);
@@ -21,15 +27,16 @@ function PrincipalContainer() {
     };
 
     fetchInitialFigures();
-  }, []);
+  }, [animeName, isHomePage]);
 
   const loadMore = async () => {
     try {
       const nextPage = page + 1;
-      const response = await fetch(`http://localhost:7000/v1/figures?page=${nextPage}&pageSize=${pageSize}`);
+      const animeQueryParam = animeName && !isHomePage ? `&animeName=${animeName}` : '';
+      const response = await fetch(`http://localhost:7000/v1/figures?page=${nextPage}&pageSize=${pageSize}${animeQueryParam}`);
       const data = await response.json();
 
-      setFigureList([...figureList, ...data]);
+      setFigureList(prevFigures => [...prevFigures, ...data]);
       setPage(nextPage);
     } catch (error) {
       console.error("Error fetching more figures data:", error);

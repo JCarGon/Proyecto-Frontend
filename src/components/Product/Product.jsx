@@ -6,7 +6,7 @@ function Product({ figure }) {
   const { _id, name, price, principalImage, animeName } = figure;
   return (
     <div className="product-container">
-      <Link to={`/figures/${animeName}/${_id}`}>
+      <Link to={`/animes/${animeName}/${_id}`}>
         <img className="product-image" src={`/resources/figures/${principalImage}`} alt={name} />
         <div className="product-title">{name}</div>
         <div className="product-price">Precio: {price}€</div>
