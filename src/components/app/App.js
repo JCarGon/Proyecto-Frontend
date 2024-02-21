@@ -10,9 +10,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<LadingPage />} />
-      <Route path='/products' element={<AnimesPage />}/>
-      <Route path='/products/:id' element={<ProductPage />} />
-      <Route path='/products/:anime' />
+      <Route path='/figures' element={<AnimesPage />}/>
+      <Route path='/figures/:anime' />
+      <Route path='/figures/:anime/:id' element={<ProductPage />} />
       <Route path='/WAW' />
       <Route path='/contact' />
       <Route path='/faqs' />

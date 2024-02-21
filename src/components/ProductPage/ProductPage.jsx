@@ -11,7 +11,7 @@ function ProductPage() {
     <div>
       <Header />
       <Nav />
-      <ViewProduct pokedexId={id}/>
+      <ViewProduct figureId={id}/>
       <Footer />
     </div>
   );

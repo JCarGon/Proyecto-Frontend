@@ -4,49 +4,35 @@ import promoImage from '../../resources/promoImage.png';
 import './PrincipalContainer.css';
 
 function PrincipalContainer() {
-  const [pokemonList, setPokemonList] = useState([]);
-  const [nextPageUrl, setNextPageUrl] = useState(null);
-  const itemsPerPage = 2;
+  const [figureList, setFigureList] = useState([]);
+  const [page, setPage] = useState(1);
+  const pageSize = 4;
 
   useEffect(() => {
-    const fetchInitialPokemon = async () => {
+    const fetchInitialFigures = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${itemsPerPage * 2}`);
+        const response = await fetch(`http://localhost:7000/v1/figures?page=${page}&pageSize=${pageSize}`);
         const data = await response.json();
-        const results = data.results;
 
-        const pokemonData = await Promise.all(results.map(async (pokemon) => {
-          const response = await fetch(pokemon.url);
-          return await response.json();
-        }));
-
-        setPokemonList(pokemonData);
-        setNextPageUrl(data.next);
+        setFigureList(data);
       } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
+        console.error("Error fetching figures data:", error);
       }
     };
 
-    fetchInitialPokemon();
+    fetchInitialFigures();
   }, []);
 
   const loadMore = async () => {
-    if (nextPageUrl) {
-      try {
-        const response = await fetch(nextPageUrl);
-        const data = await response.json();
-        const results = data.results;
+    try {
+      const nextPage = page + 1;
+      const response = await fetch(`http://localhost:7000/v1/figures?page=${nextPage}&pageSize=${pageSize}`);
+      const data = await response.json();
 
-        const pokemonData = await Promise.all(results.map(async (pokemon) => {
-          const response = await fetch(pokemon.url);
-          return await response.json();
-        }));
-
-        setPokemonList([...pokemonList, ...pokemonData]);
-        setNextPageUrl(data.next);
-      } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
-      }
+      setFigureList([...figureList, ...data]);
+      setPage(nextPage);
+    } catch (error) {
+      console.error("Error fetching more figures data:", error);
     }
   };
 
@@ -58,7 +44,7 @@ function PrincipalContainer() {
     return rows;
   };
 
-  const rows = createRows(pokemonList, itemsPerPage);
+  const rows = createRows(figureList, pageSize);
 
   return (
     <div>
@@ -66,8 +52,8 @@ function PrincipalContainer() {
       
       {rows.map((row, rowIndex) => (
         <div className="product-row" key={rowIndex}>
-          {row.map((pokemon, index) => (
-            <Product key={index} pokemon={pokemon} />
+          {row.map((figure, index) => (
+            <Product key={index} figure={figure} />
           ))}
         </div>
       ))}

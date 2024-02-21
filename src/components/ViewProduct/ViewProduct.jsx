@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from "react";
 
-function ViewProduct({ pokedexId }) {
-  const [pokemonData, setPokemonData] = useState(null);
+function ViewProduct({ figureId }) {
+  const [figureData, setFigureData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokedexId}`);
+        const response = await fetch(`http://localhost/v1/figures/${figureId}`);
         const data = await response.json();
-        setPokemonData(data);
+        console.log(data);
+        setFigureData(data);
       } catch (error) {
-        console.error("Error fetching Pokemon data:", error);
+        console.error("Error fetching figure data:", error);
       }
     };
 
     fetchData();
-  }, [pokedexId]);
+  }, [figureId]);
 
-  if (!pokemonData) {
+  if (!figureData) {
     return <div>Cargando...</div>;
   }
 
-  const { id, name, sprites } = pokemonData;
+  const { name, character, company, price, dimensions, material, brand, principalImage } = figureData;
 
   return (
     <div className="product-container">
-      <img className="product-image" src={sprites.front_default} alt={name} />
+      <img className="product-image" src={`/resources/figures/${principalImage}`} alt={name} />
       <div className="product-title">{name}</div>
-      <div className="product-price">Pokédex #{id}</div>
+      <div className="product-character">Character: {character}</div>
+      <div className="product-company">Company: {company}</div>
+      <div className="product-price">Price: ${price}</div>
+      <div className="product-dimensions">Dimensions: {dimensions}</div>
+      <div className="product-material">Material: {material}</div>
+      <div className="product-brand">Brand: {brand}</div>
     </div>
   );
 }

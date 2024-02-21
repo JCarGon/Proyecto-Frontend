@@ -2,17 +2,14 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "./Product.css";
 
-function Product({ pokemon }) {
-  const pokedexNumber = pokemon.id;
-  const name = pokemon.name;
-  const sprite = pokemon.sprites.front_default;
-
+function Product({ figure }) {
+  const { _id, name, price, principalImage, animeName } = figure;
   return (
     <div className="product-container">
-      <Link to={`/products/${pokedexNumber}`}>
-        <img className="product-image" src={sprite} alt={name} />
+      <Link to={`/figures/${animeName}/${_id}`}>
+        <img className="product-image" src={`/resources/figures/${principalImage}`} alt={name} />
         <div className="product-title">{name}</div>
-        <div className="product-price">Pokédex #{pokedexNumber}</div>
+        <div className="product-price">Precio: {price}€</div>
       </Link>
     </div>
   );
