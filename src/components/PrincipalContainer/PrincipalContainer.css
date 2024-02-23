@@ -12,7 +12,7 @@
   margin-bottom: 10%;
 }
 
-button {
+.loadMoreButton {
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
@@ -37,22 +37,22 @@ button {
   margin-bottom: 30px;
 }
 
-button:hover {
+.loadMoreButton:hover {
   background-color: #5192F5;
   box-shadow: 0px 25px 20px #5c84c1;
   color: #fff;
   transform: translateY(-7px);
 }
 
-button:hover span {
+.loadMoreButton:hover span {
   color: #fff;
 }
 
-button:active {
+.loadMoreButton:active {
   transform: translateY(-1px);
 }
 
-button span {
+.loadMoreButton span {
   width: 360px;
   text-align: center;
   color: black;

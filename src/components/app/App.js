@@ -17,7 +17,6 @@ function App() {
       <Route path='/WAW' />
       <Route path='/contact' />
       <Route path='/faqs' />
-      <Route path='/login' />
       <Route path='/register' />
       <Route path='/cart' />
       <Route path='*' element={<Navigate to="/not-found" />} />
