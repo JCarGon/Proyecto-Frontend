@@ -55,16 +55,16 @@ function ViewProduct({ figureId }) {
   const { name, character, company, price, dimensions, material, brand, principalImage, amount } = figureData;
 
   return (
-    <div className="product-container">
-      <img className="product-image" src={`/resources/figures/${principalImage}`} alt={name} />
-      <div className="product-title">{name}</div>
-      <div className="product-character">Personaje: {character}</div>
-      <div className="product-company">Franquicia: {company}</div>
-      <div className="product-price">Precio: {price}€</div>
-      <div className="product-dimensions">Dimensiones: {dimensions}</div>
-      <div className="product-material">Materiales: {material}</div>
-      <div className="product-brand">Marca: {brand}</div>
-      <div className="product-amount">Existencias: {amount}</div>
+    <div className="view-container">
+      <img className="view-image" src={`/resources/figures/${principalImage}`} alt={name} />
+      <div className="view-title">{name}</div>
+      <div className="view-character">Personaje: {character}</div>
+      <div className="view-company">Franquicia: {company}</div>
+      <div className="view-price">Precio: {price}€</div>
+      <div className="view-dimensions">Dimensiones: {dimensions}</div>
+      <div className="view-material">Materiales: {material}</div>
+      <div className="view-brand">Marca: {brand}</div>
+      <div className="view-amount">Existencias: {amount}</div>
       <button className="addToCart" onClick={addToCart}>Añadir al carrito</button>
       {isLoginModalOpen && <LoginModal onClose={() => setIsLoginModalOpen(false)} />}
     </div>

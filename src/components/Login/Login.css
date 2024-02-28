@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .login-form-container {
@@ -80,7 +81,7 @@
   background: url('../../images/rengoku.png') center center no-repeat;
   background-size: cover;
 }
-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;

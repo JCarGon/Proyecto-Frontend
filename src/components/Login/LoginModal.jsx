@@ -40,7 +40,7 @@ function LoginModal({ onClose, onRegisterClick  }) {
       <div className="login-form-container">
         <button className="close-button" onClick={onClose}>X</button>
         <h2>Inicia sesión</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
           <input
             id="email"
             placeholder="Email"
