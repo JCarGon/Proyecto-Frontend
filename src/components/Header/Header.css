@@ -7,6 +7,18 @@
   align-items: center;
 }
 
+a {text-decoration: none;}
+
+.nombreEmpresa {
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+  font-family: 'SAKURATA';
+  font-weight: 400;
+  word-wrap: break-word;
+  transition: transform 300ms ease-out;
+}
+
 img {
   width: 300px;
 }

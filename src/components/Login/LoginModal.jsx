@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function LoginModal({ onClose }) {
+function LoginModal({ onClose, onRegisterClick  }) {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -39,7 +39,7 @@ function LoginModal({ onClose }) {
     <div className="login-modal">
       <div className="login-form-container">
         <button className="close-button" onClick={onClose}>X</button>
-        <h2>Iniciar sesión</h2>
+        <h2>Inicia sesión</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             id="email"
@@ -73,7 +73,7 @@ function LoginModal({ onClose }) {
         <div className="separator"></div>
         <h2>Regístrate</h2>
         <div className="register-section">
-          <button className="buttonRegister" onClick={() => navigate('/register')}>Registrarse</button>
+          <button className="registerButton" onClick={onRegisterClick}>Registrarse</button>
         </div>
       </div>
       <div className="login-image-container"></div>

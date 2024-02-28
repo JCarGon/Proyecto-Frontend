@@ -1,4 +1,4 @@
-.login-modal {
+.register-modal {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -7,7 +7,7 @@
   left: 0;
 }
 
-.login-form-container {
+.register-form-container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -28,26 +28,26 @@
   color: black;
 }
 
-.login-form-container h2 {
+.register-form-container h2 {
   margin-bottom: 30px;
 }
 
-.login-form-container input {
-  width: 430px;
-  height: 50px;
+.register-form-container input {
+  width: 340px;
+  height: 40px;
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid transparent;
   padding: 10px;
 }
 
-.login-form-container input:hover,
-.login-form-container input:focus {
+.register-form-container input:hover,
+.register-form-container input:focus {
   border: 2px solid #5192F5;
 }
 
-.buttonLogin, .registerButton {
-  width: 430px;
+.buttonRegister {
+  width: 765px;
   height: 50px;
   background-color: #5192F5;
   color: white;
@@ -59,32 +59,24 @@
   font-weight: bold;
 }
 
-.buttonLogin:hover, .buttonRegister:hover {
+.buttonRegister:hover {
   background-color: #5C84C1;
 }
 
-.separator {
-  width: 500px;
-  height: 2px;
-  background-color: black;
-  margin: 20px 0;
-}
-
-.register-section span {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.login-image-container {
+.register-image-container {
   flex: 1;
   background: url('../../images/rengoku.png') center center no-repeat;
   background-size: cover;
 }
-form {
-  display: flex;
-  flex-direction: column;
+.registerForm {
+  display: grid;
+  grid-template-columns: 400px 400px;
   align-items: center;
 }
 input {
   font-size: 24px;
+}
+.registerForm p {
+  margin-top: -20px;
+  margin-bottom: 10px;
 }

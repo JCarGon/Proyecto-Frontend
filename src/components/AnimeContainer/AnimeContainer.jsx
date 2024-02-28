@@ -17,7 +17,7 @@ function AnimeContainer() {
       </div>
       <div className='images-group'>
         <Link to="/animes/KimetsuNoYaiba"><img src={LogoKNY} alt="Logo del anime Kimetsu No Yaiba" className='LogoKNY' /></Link>
-        <Link to="/animes/MyHeroAacademia"><img src={LogoMHA} alt="Logo del anime My Hero Academia" className='LogoMHA' /></Link>
+        <Link to="/animes/MyHeroAcademia"><img src={LogoMHA} alt="Logo del anime My Hero Academia" className='LogoMHA' /></Link>
       </div>
       <div className='images-group'>
         <Link to="/animes/Naruto"><img src={LogoNaruto} alt="Logo del anime Naruto" className='LogoNaruto' /></Link>

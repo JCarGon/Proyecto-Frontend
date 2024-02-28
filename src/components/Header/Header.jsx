@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logo from "../../images/logo.png";
 import search from "../../images/search.png";
 import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
 import LoginModal from "../Login/LoginModal";
+import RegisterModal from '../Register/RegisterModal';
 import "./Header.css";
 
 function Header() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false); // Nuevo estado para el RegisterModal
   const navigate = useNavigate();
 
   const handleUserIconClick = () => {
@@ -21,13 +22,22 @@ function Header() {
     }
   };
 
-  const handleCloseModal = () => {
+  const handleLoginModalClose = () => {
     setIsLoginModalOpen(false);
+  };
+
+  const handleRegisterModalOpen = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true); // Abre el RegisterModal
+  };
+
+  const handleRegisterModalClose = () => {
+    setIsRegisterModalOpen(false); // Cierra el RegisterModal
   };
 
   return (
     <div className="header-container">
-      <Link to="/"><img src={logo} alt="logo de la empresa" /></Link>
+      <Link to="/"><p className="nombreEmpresa">FRIKILEVEL</p></Link>
       <div className="search-bar">
         <input type="text" placeholder="Buscar..."></input>
         <div className="search"><img src={search} alt="icono de búsqueda" /></div>
@@ -38,7 +48,8 @@ function Header() {
       <div className="cart-icon">
         <Link to="/cart"><img src={cart} alt="icono de carrito" /></Link>
       </div>
-      {isLoginModalOpen && <LoginModal onClose={handleCloseModal} />}
+      {isLoginModalOpen && <LoginModal onClose={handleLoginModalClose} onRegisterClick={handleRegisterModalOpen} />}
+      {isRegisterModalOpen && <RegisterModal onClose={handleRegisterModalClose} />}
     </div>
   );
 }

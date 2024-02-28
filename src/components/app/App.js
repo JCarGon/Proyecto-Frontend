@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LadingPage from '../LandingPage/LandingPage';
 import AnimesPage from '../AnimesPage/AnimesPage';
 import AnimePage from '../AnimePage/AnimePage';
+import Cart from '../Cart/Cart';
+import OrderConfirmed from '../OrderConfirmed/OrderConfirmed';
 import ProductPage from '../ProductPage/ProductPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
@@ -17,8 +19,8 @@ function App() {
       <Route path='/WAW' />
       <Route path='/contact' />
       <Route path='/faqs' />
-      <Route path='/register' />
-      <Route path='/cart' />
+      <Route path='/cart' element={<Cart />} />
+      <Route path='/orderConfirmed' element={<OrderConfirmed />} />
       <Route path='*' element={<Navigate to="/not-found" />} />
       <Route path='/not-found' element={<NotFoundPage />} />
     </Routes>
