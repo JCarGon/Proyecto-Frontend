@@ -12,10 +12,11 @@
 }
 
 .nav-link {
+  position: relative; /* Contexto de posicionamiento para el menú desplegable */
   text-align: center;
   color: black;
   font-size: 2.2rem;
-  font-family: 'SAKURATA';
+  font-family: 'SAKURATA', 'Franklin Gothic Medium', 'sans-serif';
   font-weight: 400;
   word-wrap: break-word;
   transition: transform 300ms ease-out;
@@ -32,37 +33,40 @@
   transition: transform 300ms ease-out;
 }
 
-div ul {
+.nav-link ul {
   list-style: none;
   padding: 0;
-  width: 480px; /* Ancho total del submenú (ajústalo según tus necesidades) */
+  width: 450px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas con el mismo ancho */
-  grid-template-rows: repeat(3, auto); /* Tres filas con alto automático */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
   background-color: white;
   position: absolute;
-  top: 40px;
-  left: 20px;
+  top: 50%;
+  left: 0;
   visibility: hidden;
   opacity: 0;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   z-index: 10;
-  transition: all 400ms ease;
+  transition: visibility 0s linear 300ms, opacity 300ms linear;
   border-radius: 20px;
 }
 
-.dbz-title, .mha-title {margin-top: 15px;}
-
-.n-title {margin-top: 40px;}
-
-.nav-link:hover ul{
-  visibility: visible;
-  opacity: 1;
-  top: 20px;
-  left: 25px;
+.dbz-title, .mha-title {
+  margin-top: 15px;
 }
 
-.nav-link ul:before{
+.n-title {
+  margin-top: 40px;
+}
+
+.nav-link:hover ul, .nav-link ul:hover {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.nav-link ul:before {
   content: '';
   width: 0;
   height: 0;
@@ -74,10 +78,11 @@ div ul {
   left: 20px;
 }
 
-.nav-link ul li a{
+.nav-link ul li a {
   display: block;
   padding-left: 10px;
   margin-bottom: 10px;
+  position: relative;
   transition: all 300ms ease;
 }
 
@@ -87,30 +92,6 @@ div ul {
   object-fit: contain;
 }
 
-.nav-link ul li a:hover{
+.nav-link ul li a:hover {
   transform: scale(1.1);
-}
-
-.nav-link ul li a {
-  display: block;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.nav-link ul li:hover::before {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 24px;
-  content: attr(alt);
-  display: inline-block;
-  position: absolute;
-  top: -10px;
-  left: 80%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  z-index: 1;
-  white-space: nowrap;
 }
