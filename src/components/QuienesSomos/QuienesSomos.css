@@ -1,0 +1,24 @@
+.quienes-somos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.waw-title {
+  font-family: 'Sakurata';
+  font-size: 3rem;
+}
+
+.quienes-somos-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.waw-text {
+  margin: 20px 400px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}

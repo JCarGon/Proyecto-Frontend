@@ -1,7 +1,7 @@
 .nav-container {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1;
   background-color: #F1D8A3;
   padding-left: 60px;
   padding-right: 60px;
@@ -56,13 +56,11 @@
   border-radius: 20px;
 }
 
-.dbz-title, .mha-title {
-  margin-top: 15px;
-}
-
-.n-title {
-  margin-top: 40px;
-}
+.dbz-title {margin-top: 30px;}
+.mha-title {margin-top: 15px;}
+.aot-title {margin-top: 20px;}
+.op-title {margin-top: 20px;}
+.n-title {margin-top: 40px;}
 
 .nav-link:hover ul, .nav-link ul:hover {
   visibility: visible;

@@ -27,7 +27,7 @@ function Nav() {
           </ul>
         </div>
         <div className="nav-link">
-          <Link to="/">QUIÉNES SOMOS</Link>
+          <Link to="/WAW">QUIÉNES SOMOS</Link>
         </div>
         <div className="nav-link">
           <Link to="/">CONTACTO</Link>
