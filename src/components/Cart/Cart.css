@@ -4,6 +4,10 @@
   align-items: center;
   text-align: center;
 }
+.cart-title {
+  font-family: 'Sakurata';
+  font-size: 3rem;
+}
 .cart-content .product-container .product-image {
   width: 200px;
   height: auto;

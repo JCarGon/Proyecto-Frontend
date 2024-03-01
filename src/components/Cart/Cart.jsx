@@ -106,7 +106,7 @@ function Cart() {
       <Header />
       <Nav />
       <div className="cart-content">
-        <h1>Carrito del usuario</h1>
+        <h1 className="cart-title">CARRITO</h1>
         {userFigures.map(figure => (
           <div key={figure._id} className="cart-item">
             <img className="cart-figure-image" src={`/resources/figures/${figure.principalImage}`} alt={figure.name} />
