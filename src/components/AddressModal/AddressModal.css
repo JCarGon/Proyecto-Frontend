@@ -1,0 +1,59 @@
+.address-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.address-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.address-form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.address-input {
+  width: 500px;
+  border-radius: 5px;
+}
+.cancel-button {
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.cancel-button:hover {
+  background-color: #e60000;
+}
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: #388E3C;
+}
+.divs-modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}

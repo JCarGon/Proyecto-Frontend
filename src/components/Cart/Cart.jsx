@@ -3,13 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import Product from '../Product/Product';
 import LoginModal from '../Login/LoginModal';
+import AddressModal from '../AddressModal/AddressModal';
 import trash from '../../images/trash.svg';
 import './Cart.css';
 
 function Cart() {
   const [userFigures, setUserFigures] = useState([]);
+  const [userAddress, setUserAddress] = useState('');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +36,7 @@ function Cart() {
         if (response.ok) {
           const data = await response.json();
           setUserFigures(data.favouritesFigures || []);
+          setUserAddress(data.address);
         } else if (response.status === 401) {
           setIsLoginModalOpen(true);
         }
@@ -56,7 +61,7 @@ function Cart() {
 
       if (response.ok) {
         alert("Figura eliminada del carrito");
-        window.location.reload();
+        setUserFigures(userFigures.filter(figure => figure._id !== figureId));
       } else if (response.status === 401) {
         setIsLoginModalOpen(true);
       }
@@ -65,10 +70,15 @@ function Cart() {
     }
   };
 
-  const confirmOrder = async () => {
-    const totalPrice = userFigures.reduce((acc, figure) => acc + figure.price, 0);
-    const confirm = window.confirm(`¿Está seguro que desea realizar un pedido por un total de ${totalPrice} €?`);
+  const confirmOrder = () => {
+    setIsAddressModalOpen(true);
+  };
+
+  const handleAddressAccept = async () => {
+    const totalPrice = userFigures.reduce((acc, figure) => acc + (figure.price * 0.9), 0);
+    const confirm = window.confirm(`¿Está seguro que desea realizar un pedido por un total de ${totalPrice.toFixed(2)} €?`);
     if (!confirm) {
+      setIsAddressModalOpen(false);
       return;
     }
 
@@ -78,7 +88,7 @@ function Cart() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
         }
       });
 
@@ -119,6 +129,7 @@ function Cart() {
       </div>
       <Footer />
       {isLoginModalOpen && <LoginModal onClose={() => setIsLoginModalOpen(false)} />}
+      {isAddressModalOpen && <AddressModal user={{address: userAddress}} onCancel={() => setIsAddressModalOpen(false)} onAccept={handleAddressAccept} />}
     </div>
   );
 }
