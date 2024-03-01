@@ -1,0 +1,10 @@
+.show-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.show-search .product-container .product-image {
+  width: 200px;
+  height: auto;
+}
