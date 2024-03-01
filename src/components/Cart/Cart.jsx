@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import Product from '../Product/Product';
 import LoginModal from '../Login/LoginModal';
 import AddressModal from '../AddressModal/AddressModal';
 import trash from '../../images/trash.svg';
