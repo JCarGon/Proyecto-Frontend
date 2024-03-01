@@ -1,0 +1,21 @@
+.ok-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 20px;
+}
+.home-button{
+  display: block;
+  margin: auto;
+  width: 300px;
+  height: 40px;
+  background-color: #5192F5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 24px;
+  font-weight: bold;
+}
+.home-button:hover {background-color: #5C84C1;}
