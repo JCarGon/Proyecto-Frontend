@@ -10,7 +10,8 @@ import "./Header.css";
 
 function Header() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false); // Nuevo estado para el RegisterModal
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
 
   const handleUserIconClick = () => {
@@ -28,19 +29,30 @@ function Header() {
 
   const handleRegisterModalOpen = () => {
     setIsLoginModalOpen(false);
-    setIsRegisterModalOpen(true); // Abre el RegisterModal
+    setIsRegisterModalOpen(true);
   };
 
   const handleRegisterModalClose = () => {
-    setIsRegisterModalOpen(false); // Cierra el RegisterModal
+    setIsRegisterModalOpen(false);
+  };
+
+  const handleSearchClick = () => {
+    navigate(`/search/character/${searchText}`);
   };
 
   return (
     <div className="header-container">
       <Link to="/"><p className="nombreEmpresa">FRIKILEVEL</p></Link>
       <div className="search-bar">
-        <input type="text" placeholder="Buscar..."></input>
-        <div className="search"><img src={search} alt="icono de búsqueda" /></div>
+      <input 
+          type="text" 
+          placeholder="Buscar..." 
+          value={searchText} 
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button className="search" onClick={handleSearchClick}>
+          <img src={search} alt="icono de búsqueda" />
+        </button>
       </div>
       <div className="user-icon" onClick={handleUserIconClick}>
         <img src={user} alt="icono inicio de sesión" />

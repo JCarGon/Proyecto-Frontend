@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LadingPage from '../LandingPage/LandingPage';
+import SearchPage from '../SearchPage/SearchPage';
 import AnimesPage from '../AnimesPage/AnimesPage';
 import AnimePage from '../AnimePage/AnimePage';
 import Cart from '../Cart/Cart';
@@ -13,6 +14,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<LadingPage />} />
+      <Route path='/search/character/:name' element={<SearchPage />} />
       <Route path='/animes' element={<AnimesPage />}/>
       <Route path="/animes/:animeName" element={<AnimePage />} />
       <Route path='/animes/:animeName/:id' element={<ProductPage />} />
