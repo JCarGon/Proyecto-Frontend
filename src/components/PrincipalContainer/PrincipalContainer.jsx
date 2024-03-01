@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Product from '../Product/Product';
-import promoImage from '../../images/promoImage.png';
+import promoImage from '../../images/promoImage.webp';
 import './PrincipalContainer.css';
 
 function PrincipalContainer() {

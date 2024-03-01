@@ -78,7 +78,7 @@
 
 .login-image-container {
   flex: 1;
-  background: url('../../images/rengoku.png') center center no-repeat;
+  background: url('../../images/rengoku.webp') center center no-repeat;
   background-size: cover;
 }
 .login-form {

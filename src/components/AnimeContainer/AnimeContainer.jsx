@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AnimeContainer.css';
-import logoDBZ from '../../images/logoDBZ.png';
-import LogoMHA from '../../images/LogoMHA.png';
-import LogoAOT from '../../images/LogoAOT.png';
-import LogoOnePiece from '../../images/LogoOnePiece.png';
-import LogoNaruto from '../../images/LogoNaruto.png';
-import LogoKNY from '../../images/LogoKNY.png';
+import logoDBZ from '../../images/logoDBZ.webp';
+import LogoMHA from '../../images/LogoMHA.webp';
+import LogoAOT from '../../images/LogoAOT.webp';
+import LogoOnePiece from '../../images/LogoOnePiece.webp';
+import LogoNaruto from '../../images/LogoNaruto.webp';
+import LogoKNY from '../../images/LogoKNY.webp';
 
 function AnimeContainer() {
   return (

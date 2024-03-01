@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import search from "../../images/search.png";
+import search from "../../images/search.webp";
 import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
 import LoginModal from "../Login/LoginModal";

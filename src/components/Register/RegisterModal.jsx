@@ -114,7 +114,12 @@ function RegisterModal({ onClose }) {
           />
           {errors.tlf && <p>{errors.tlf.message}</p>}
 
-          <button className="buttonRegister" type="submit" disabled={!isValid}>Registrarse</button>
+          <button 
+            className={`buttonRegister ${isValid ? 'enabled' : ''}`} 
+            type="submit" 
+            disabled={!isValid}>
+            Registrarse
+          </button>
         </form>
       </div>
       <div className="register-image-container"></div>

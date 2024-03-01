@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import './Footer.css';
-import logoEmpresa from '../../images/logo.png';
-import logoFacebook from '../../images/facebook.png';
-import logoTwitter from '../../images/twitter.png';
-import logoYoutube from '../../images/YouTube.png';
-import logoInstagram from '../../images/instagram.png';
+import logoEmpresa from '../../images/logo.webp';
+import logoFacebook from '../../images/facebook.webp';
+import logoTwitter from '../../images/twitter.webp';
+import logoYoutube from '../../images/YouTube.webp';
+import logoInstagram from '../../images/instagram.webp';
 
 function Footer() {
   const footerLogoRef = useRef(null);
