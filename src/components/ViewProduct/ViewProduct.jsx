@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoginModal from '../Login/LoginModal';
+import './ViewProduct.css';
 
 function ViewProduct({ figureId }) {
   const [figureData, setFigureData] = useState(null);
@@ -65,7 +66,9 @@ function ViewProduct({ figureId }) {
       <div className="view-material">Materiales: {material}</div>
       <div className="view-brand">Marca: {brand}</div>
       <div className="view-amount">Existencias: {amount}</div>
-      <button className="addToCart" onClick={addToCart}>Añadir al carrito</button>
+      <button className="addToCart" onClick={addToCart}>
+        <span>Añadir al carrito</span>
+      </button>
       {isLoginModalOpen && <LoginModal onClose={() => setIsLoginModalOpen(false)} />}
     </div>
   );

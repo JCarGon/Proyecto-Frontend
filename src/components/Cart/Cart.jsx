@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import Product from '../Product/Product';
 import LoginModal from '../Login/LoginModal';
+import trash from '../../images/trash.svg';
 import './Cart.css';
 
 function Cart() {
@@ -96,18 +96,24 @@ function Cart() {
     <div>
       <Header />
       <Nav />
-      <h1>Carrito del usuario</h1>
       <div className="cart-content">
+        <h1>Carrito del usuario</h1>
         {userFigures.map(figure => (
           <div key={figure._id} className="cart-item">
-            <Product figure={figure} />
-            <button onClick={() => handleRemoveFigure(figure._id)}>Eliminar del carrito</button>
+            <img className="cart-figure-image" src={`/resources/figures/${figure.principalImage}`} alt={figure.name} />
+            <div className="cart-figure-info">
+              <h3 className="cart-figure-title">{figure.name}</h3>
+              <p className="cart-figure-price">Precio: {(figure.price * 0.9).toFixed(2)}€ (Descuento aplicado)</p>
+            </div>
+            <img src={trash} className="delete-figure-cart" onClick={() => handleRemoveFigure(figure._id)} alt="Icono de basura para eliminar esta figura"></img>
           </div>
         ))}
         {userFigures.length > 0 && (
           <>
-            <div>Precio total: {userFigures.reduce((acc, figure) => acc + figure.price, 0)} €</div>
-            <button onClick={confirmOrder}>Confirmar pedido</button>
+            <h3 className="total-price">Precio total: {(userFigures.reduce((acc, figure) => acc + (figure.price * 0.9), 0)).toFixed(2)} €</h3>
+            <button className="confirm-purchase" onClick={confirmOrder}>
+              <span>Confirmar pedido</span>
+            </button>
           </>
         )}
       </div>
