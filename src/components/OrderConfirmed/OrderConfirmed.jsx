@@ -19,7 +19,7 @@ function OrderConfirmed() {
       <Nav />
       <div className="ok-container">
         <p>Su pedido ha sido recibido, ¡lo procesaremos lo más rápido que podamos!</p>
-        <img className="orderConfirmed" src={imgOK} alt="imagen de Goku con pulgar hacia arriba para indicar que está OK"></img>
+        <img className="imgOK" src={imgOK} alt="imagen de Goku con pulgar hacia arriba para indicar que está OK"></img>
       </div>
       <button className="home-button" onClick={goToHome}>Ir a Inicio</button>
       <Footer />

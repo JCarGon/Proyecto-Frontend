@@ -4,6 +4,14 @@
   align-items: center;
   margin: 50px 20px;
 }
+.ok-container p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  max-width: 300px;
+  text-align: center;
+  margin-right: 50px;
+}
+.imgOK {width: 400px;}
 .home-button{
   display: block;
   margin: auto;
