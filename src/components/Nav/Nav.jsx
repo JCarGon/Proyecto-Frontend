@@ -33,7 +33,7 @@ function Nav() {
           <Link to="/">CONTACTO</Link>
         </div>
         <div className="nav-link">
-          <Link to="/">FAQS</Link>
+          <Link to="/faqs">FAQS</Link>
         </div>
       </div>
     </div>
