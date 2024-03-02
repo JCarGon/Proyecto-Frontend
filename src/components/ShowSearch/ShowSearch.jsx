@@ -8,7 +8,7 @@ function ShowSearch({ name }) {
   useEffect(() => {
     const fetchFigures = async () => {
       try {
-        const response = await fetch(`http://localhost:7000/v1/figures?character=${name}`);
+        const response = await fetch(`http://localhost:7000/v1/figures?name=${name}`);
         const data = await response.json();
         setFigureList(data);
       } catch (error) {
@@ -23,7 +23,7 @@ function ShowSearch({ name }) {
 
   return (
     <div className="show-search">
-      <h2>Resultado de la búsqueda para: "{name}"</h2>
+      <h2 className="search-title">Resultado de la búsqueda para: "{name}"</h2>
       {figureList.length > 0 ? (
         figureList.map((figure, index) => (
           <Product key={index} figure={figure} />

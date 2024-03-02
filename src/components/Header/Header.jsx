@@ -46,7 +46,7 @@ function Header() {
       <div className="search-bar">
       <input 
           type="text" 
-          placeholder="Buscar..." 
+          placeholder="Buscar una figura por nombre..."
           value={searchText} 
           onChange={(e) => setSearchText(e.target.value)}
         />

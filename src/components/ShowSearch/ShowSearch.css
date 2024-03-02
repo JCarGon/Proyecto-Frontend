@@ -8,3 +8,15 @@
   width: 200px;
   height: auto;
 }
+.search-title {margin-top: 50px;}
+.show-search .product-container {
+  display: flex;
+  flex-direction: row;
+}
+.show-search .product-title {
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.show-search .product-price {margin: 0px;}
+.show-search .product-info {margin-top: 10px;}
