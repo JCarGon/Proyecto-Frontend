@@ -39,80 +39,166 @@ function RegisterModal({ onClose }) {
         <button className="close-button" onClick={onClose}>X</button>
         <h2>Regístrate</h2>
         <form className='registerForm' onSubmit={handleSubmit(onSubmit)}>
-          <input
-            placeholder="Email"
-            {...register('email', {
-              required: 'El email es requerido',
-              pattern: {
-                value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                message: 'Formato de email inválido'
-              }
-            })}
-          />
-          {errors.email && <p>{errors.email.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Email"
+              {...register('email', {
+                required: 'El email es requerido',
+                pattern: {
+                  value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                  message: 'Formato de email inválido'
+                }
+              })}
+            />
+            {errors.email && <p className='error-message'>{errors.email.message}</p>}
+          </div>
 
-          <input
-            type="password"
-            placeholder="Contraseña"
-            {...register('password', {
-              required: 'La contraseña es requerida',
-              maxLength: {
-                value: 30,
-                message: 'La contraseña no puede tener más de 30 caracteres'
-              },
-              pattern: {
-                value: /^[A-Za-z0-9]+$/i,
-                message: 'La contraseña solo puede contener caracteres alfanuméricos'
-              }
-            })}
-          />
-          {errors.password && <p>{errors.password.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              {...register('password', {
+                required: 'La contraseña es requerida',
+                minLength: {
+                  value: 6,
+                  message: 'La contraseña debe contener al menos 6 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'La contraseña no puede tener más de 20 caracteres'
+                },
+                pattern: {
+                  value: /^[A-Za-z0-9]+$/i,
+                  message: 'La contraseña solo puede contener caracteres alfanuméricos'
+                }
+              })}
+            />
+            {errors.password && <p className='error-message'>{errors.password.message}</p>}
+          </div>
 
-          <input
-            placeholder="Nombre de usuario"
-            {...register('username', {
-              required: 'El nombre de usuario es requerido',
-              maxLength: {
-                value: 30,
-                message: 'El nombre de usuario no puede tener más de 30 caracteres'
-              },
-              pattern: {
-                value: /^[A-Za-z0-9]+$/i,
-                message: 'El nombre de usuario solo puede contener caracteres alfanuméricos'
-              }
-            })}
-          />
-          {errors.username && <p>{errors.username.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Nombre de usuario"
+              {...register('username', {
+                required: 'El nombre de usuario es requerido',
+                minLength: {
+                  value: 5,
+                  message: 'El nombre de usuario debe contener al menos 5 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'El nombre de usuario no puede tener más de 20 caracteres'
+                },
+                pattern: {
+                  value: /^[A-Za-z0-9]+$/i,
+                  message: 'El nombre de usuario solo puede contener caracteres alfanuméricos'
+                }
+              })}
+            />
+            {errors.username && <p className='error-message'>{errors.username.message}</p>}
+          </div>
 
-          <input
-            placeholder="Nombre completo"
-            {...register('name', { required: 'El nombre es requerido' })}
-          />
-          {errors.name && <p>{errors.name.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Nombre completo"
+              {...register('name', {
+                required: 'El nombre es requerido',
+                minLength: {
+                  value: 6,
+                  message: 'El nombre debe contener al menos 6 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'El nombre no puede tener más de 20 caracteres'
+                },
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: 'El nombre solo puede contener caracteres alfabéticos'
+                }
+              })}
+            />
+            {errors.name && <p className='error-message'>{errors.name.message}</p>}
+          </div>
 
-          <input
-            placeholder="Dirección"
-            {...register('address', { required: 'La dirección es requerida' })}
-          />
-          {errors.address && <p>{errors.address.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Dirección"
+              {...register('address', {
+                required: 'La dirección es requerida',
+                pattern: {
+                  value: /^c\/\s.+,\s\d+$/,
+                  message: 'La dirección debe seguir el formato "c/ ..., número"'
+                }
+              })}
+            />
+            {errors.address && <p className='error-message'>{errors.address.message}</p>}
+          </div>
 
-          <input
-            placeholder="Código Postal"
-            {...register('cp', { required: 'El código postal es requerido' })}
-          />
-          {errors.cp && <p>{errors.cp.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Código Postal"
+              {...register('cp', {
+                required: 'El código postal es requerido',
+                minLength: {
+                  value: 5,
+                  message: 'El código postal solo debe contener 5 números "XXXXX"'
+                },
+                maxLength: {
+                  value: 5,
+                  message: 'El código postal solo debe contener 5 números "XXXXX"'
+                },
+                pattern: {
+                  value: /^\d+$/,
+                  message: 'El código postal solo debe contener números'
+                }
+              })}
+            />
+            {errors.cp && <p className='error-message'>{errors.cp.message}</p>}
+          </div>
 
-          <input
-            placeholder="Ciudad"
-            {...register('city', { required: 'La ciudad es requerida' })}
-          />
-          {errors.city && <p>{errors.city.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Ciudad"
+              {...register('city', {
+                required: 'La ciudad es requerida',
+                minLength: {
+                  value: 4,
+                  message: 'La ciudad debe contener más de 4 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'La ciudad debe contener menos de 20 caracteres'
+                },
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: 'La ciudad solo puede contener caracteres alfabéticos'
+                }
+              })}
+            />
+            {errors.city && <p className='error-message'>{errors.city.message}</p>}
+          </div>
 
-          <input
-            placeholder="Teléfono"
-            {...register('tlf', { required: 'El teléfono es requerido' })}
-          />
-          {errors.tlf && <p>{errors.tlf.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              placeholder="Teléfono"
+              {...register('tlf', {
+                required: 'El teléfono es requerido',
+                minLength: {
+                  value: 9,
+                  message: 'El número de teléfono debe contener 9 dígitos'
+                },
+                maxLength: {
+                  value: 9,
+                  message: 'El número de teléfono debe contener 9 dígitos'
+                },
+                pattern: {
+                  value: /^\d+$/,
+                  message: 'El teléfono solo debe contener números'
+                }
+              })}
+            />
+            {errors.tlf && <p className='error-message'>{errors.tlf.message}</p>}
+          </div>
 
           <button 
             className={`buttonRegister ${isValid ? 'enabled' : ''}`} 
