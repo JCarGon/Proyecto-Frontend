@@ -59,6 +59,15 @@ function Header() {
     navigate(`/search/character/${searchText}`);
   };
 
+  const handleCartClick = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/cart');
+    } else {
+      setIsLoginModalOpen(true);
+    }
+  };
+
   return (
     <div className="header-container">
       <Link to="/"><p className="nombreEmpresa">FRIKILEVEL</p></Link>
@@ -82,8 +91,8 @@ function Header() {
           </div>
         )}
       </div>
-      <div className="cart-icon">
-        <Link to="/cart"><img src={cart} alt="icono de carrito" /></Link>
+      <div className="cart-icon" onClick={handleCartClick}>
+        <img src={cart} alt="icono de carrito" />
       </div>
       {isLoginModalOpen && <LoginModal onClose={handleLoginModalClose} onRegisterClick={handleRegisterModalOpen} />}
       {isRegisterModalOpen && <RegisterModal onClose={handleRegisterModalClose} />}
