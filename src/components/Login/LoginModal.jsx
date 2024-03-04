@@ -41,32 +41,44 @@ function LoginModal({ onClose, onRegisterClick  }) {
         <button className="close-button" onClick={onClose}>X</button>
         <h2>Inicia sesión</h2>
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-          <input
-            id="email"
-            placeholder="Email"
-            {...register('email', {
-              required: "El email es requerido",
-              pattern: {
-                value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                message: "Formato de email inválido"
-              }
-            })}
-          />
-          {errors.email && <p>{errors.email.message}</p>}
-
-          <input
-            id="password"
-            type="password"
-            placeholder="Contraseña"
-            {...register('password', {
-              required: "La contraseña es requerida",
-              pattern: {
-                value: /^[A-Za-z0-9]+$/i,
-                message: "Solo se permiten caracteres alfanuméricos"
-              }
-            })}
-          />
-          {errors.password && <p>{errors.password.message}</p>}
+          <div className='input-wrapper'>
+            <input
+              id="email"
+              placeholder="Email"
+              {...register('email', {
+                required: 'El email es requerido',
+                pattern: {
+                  value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                  message: 'Formato de email inválido'
+                }
+              })}
+            />
+            {errors.email && <p className='error-message'>{errors.email.message}</p>}
+          </div>
+          
+          <div className='input-wrapper'>
+            <input
+              id="password"
+              type="password"
+              placeholder="Contraseña"
+              {...register('password', {
+                required: 'La contraseña es requerida',
+                minLength: {
+                  value: 6,
+                  message: 'La contraseña debe contener al menos 6 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'La contraseña no puede tener más de 20 caracteres'
+                },
+                pattern: {
+                  value: /^[A-Za-z0-9]+$/i,
+                  message: 'La contraseña solo puede contener caracteres alfanuméricos'
+                }
+              })}
+            />
+            {errors.password && <p className='error-message'>{errors.password.message}</p>}
+          </div>
 
           <button className="buttonLogin" type="submit">Aceptar</button>
         </form>
