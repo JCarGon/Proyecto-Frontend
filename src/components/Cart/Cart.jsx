@@ -14,6 +14,7 @@ function Cart() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const navigate = useNavigate();
+  const discount = 0.8;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -73,8 +74,8 @@ function Cart() {
     setIsAddressModalOpen(true);
   };
 
-  const handleAddressAccept = async () => {
-    const totalPrice = userFigures.reduce((acc, figure) => acc + (figure.price * 0.9), 0);
+  const handleAddressAccept = async (selectedAddress) => {
+    const totalPrice = userFigures.reduce((acc, figure) => acc + (figure.price * discount), 0);
     const confirm = window.confirm(`¿Está seguro que desea realizar un pedido por un total de ${totalPrice.toFixed(2)} €?`);
     if (!confirm) {
       setIsAddressModalOpen(false);
@@ -88,7 +89,10 @@ function Cart() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
-        }
+        },
+        body: JSON.stringify({
+          address: selectedAddress
+        })
       });
 
       if (response.ok) {
@@ -112,14 +116,14 @@ function Cart() {
             <img className="cart-figure-image" src={`/resources/figures/${figure.principalImage}`} alt={figure.name} />
             <div className="cart-figure-info">
               <h3 className="cart-figure-title">{figure.name}</h3>
-              <p className="cart-figure-price">Precio: {(figure.price * 0.9).toFixed(2)}€ (Descuento aplicado)</p>
+              <p className="cart-figure-price">Precio: {(figure.price * discount).toFixed(2)}€ (Descuento aplicado)</p>
             </div>
             <img src={trash} className="delete-figure-cart" onClick={() => handleRemoveFigure(figure._id)} alt="Icono de basura para eliminar esta figura"></img>
           </div>
         ))}
         {userFigures.length > 0 && (
           <>
-            <h3 className="total-price">Precio total: {(userFigures.reduce((acc, figure) => acc + (figure.price * 0.9), 0)).toFixed(2)} €</h3>
+            <h3 className="total-price">Precio total: {(userFigures.reduce((acc, figure) => acc + (figure.price * discount), 0)).toFixed(2)} €</h3>
             <button className="confirm-purchase" onClick={confirmOrder}>
               <span>Confirmar pedido</span>
             </button>

@@ -1,4 +1,3 @@
-// En AddressModal.jsx
 import React, { useState } from 'react';
 import './AddressModal.css';
 
@@ -8,8 +7,21 @@ function AddressModal({ user, onCancel, onAccept }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const address = selectedOption === 'new' ? newAddress : user.address;
-    onAccept(address);
+    let addressToSend;
+    switch(selectedOption) {
+      case 'store':
+        addressToSend = 'Recoger en tienda (C.C. Lagoh)';
+        break;
+      case 'home':
+        addressToSend = user.address;
+        break;
+      case 'new':
+        addressToSend = newAddress;
+        break;
+      default:
+        addressToSend = 'Dirección no especificada'
+    }
+    onAccept(addressToSend);
   };
 
   return (

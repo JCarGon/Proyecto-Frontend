@@ -5,6 +5,7 @@ import './ViewProduct.css';
 function ViewProduct({ figureId }) {
   const [figureData, setFigureData] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const discount = 0.8;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +62,7 @@ function ViewProduct({ figureId }) {
       <div className="view-title">{name}</div>
       <div className="view-character">Personaje: {character}</div>
       <div className="view-company">Franquicia: {company}</div>
-      <div className="view-price">Precio: {price}€</div>
+      <div className="view-price">Precio: {(price*discount).toFixed(2)}€ <span>(PVP: {price}€)</span></div>
       <div className="view-dimensions">Dimensiones: {dimensions}</div>
       <div className="view-material">Materiales: {material}</div>
       <div className="view-brand">Marca: {brand}</div>

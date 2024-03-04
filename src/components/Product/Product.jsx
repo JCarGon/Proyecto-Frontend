@@ -4,6 +4,7 @@ import "./Product.css";
 
 function Product({ figure }) {
   const { _id, name, price, principalImage, animeName } = figure;
+  const discount = 0.8;
   return (
     <div className="product-container">
       <Link to={`/animes/${animeName}/${_id}`}>
@@ -11,8 +12,7 @@ function Product({ figure }) {
       </Link>
       <p className="product-title">{name}</p>
       <div className="product-info">
-        <p className="product-price">Precio: {(price*0.8).toFixed(2)}€</p>
-        <span className="discount-price">(PVP: {price}€)</span>
+        <p className="product-price">Precio: {(price*discount).toFixed(2)}€ <span className="discount-price">(PVP: {price}€)</span> </p>
       </div>
     </div>
   );
