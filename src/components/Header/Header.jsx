@@ -32,7 +32,7 @@ function Header() {
           "Authorization": `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      if (response.ok) {
+      if (response.ok || response.status === 401) {
         localStorage.removeItem('token');
         alert("Sesión cerrada correctamente. Volviendo a la página de inicio.");
         navigate("/");
