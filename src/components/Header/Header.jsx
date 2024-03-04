@@ -12,14 +12,33 @@ function Header() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
-  const handleUserIconClick = () => {
+  const handleUserIconClick = async () => {
     const token = localStorage.getItem('token');
-    if (token) {
-      navigate('/userPage');
-    } else {
+    if (!token) {
       setIsLoginModalOpen(true);
+    } else {
+      setShowDropdown(!showDropdown);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      const response = await fetch("http://localhost:7000/v1/logout", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      if (response.ok) {
+        localStorage.removeItem('token');
+        alert("Sesión cerrada correctamente. Volviendo a la página de inicio.");
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error al cerrar sesión", error);
     }
   };
 
@@ -56,6 +75,12 @@ function Header() {
       </div>
       <div className="user-icon" onClick={handleUserIconClick}>
         <img src={user} alt="icono inicio de sesión" />
+        {showDropdown && (
+          <div className="user-dropdown">
+            <Link to="/userPage">Página de usuario</Link>
+            <button onClick={logout}>Cerrar sesión</button>
+          </div>
+        )}
       </div>
       <div className="cart-icon">
         <Link to="/cart"><img src={cart} alt="icono de carrito" /></Link>
