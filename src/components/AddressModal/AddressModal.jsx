@@ -4,6 +4,9 @@ import './AddressModal.css';
 function AddressModal({ user, onCancel, onAccept }) {
   const [newAddress, setNewAddress] = useState('');
   const [selectedOption, setSelectedOption] = useState('store');
+  const inputStyle = {
+    backgroundColor: selectedOption === 'new' ? 'white' : '#f0f0f0', // Fondo blanco si 'new' está seleccionado, de lo contrario, gris
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +64,14 @@ function AddressModal({ user, onCancel, onAccept }) {
               onChange={() => setSelectedOption('new')} 
             />
             <label htmlFor="new">Introducir otra dirección:</label>
-            <input type="text" className='address-input' value={newAddress} onChange={(e) => setNewAddress(e.target.value)} />
+            <input 
+              type="text"
+              className='address-input'
+              value={newAddress}
+              onChange={(e) => setNewAddress(e.target.value)}
+              disabled={selectedOption !== 'new'}
+              style={inputStyle}
+            />
           </div>
           <div className='divs-modal-buttons'>
             <button type="button" className='cancel-button' onClick={onCancel}>Cancelar</button>

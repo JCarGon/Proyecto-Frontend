@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .address-modal-content {
   background-color: #fff;
@@ -26,6 +27,7 @@
 .address-input {
   width: 500px;
   border-radius: 5px;
+  font-size: 20px;
 }
 .cancel-button {
   background-color: #ff4d4d;
