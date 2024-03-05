@@ -91,7 +91,7 @@ function Cart() {
           'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
-          address: selectedAddress
+          shippingAddress: selectedAddress
         })
       });
 
