@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Product from '../Product/Product';
+import Loader from '../Loader/Loader';
 import promoImage from '../../images/promoImage.webp';
 import './PrincipalContainer.css';
 
 function PrincipalContainer() {
   const [figureList, setFigureList] = useState([]);
+  const [isLoadingInitial, setIsLoadingInitial] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [page, setPage] = useState(1);
   const pageSize = 4;
 
@@ -23,6 +26,8 @@ function PrincipalContainer() {
         setFigureList(data);
       } catch (error) {
         console.error("Error fetching figures data:", error);
+      } finally {
+        setIsLoadingInitial(false);
       }
     };
 
@@ -30,6 +35,7 @@ function PrincipalContainer() {
   }, [animeName, isHomePage]);
 
   const loadMore = async () => {
+    setIsLoadingMore(true);
     try {
       const nextPage = page + 1;
       const animeQueryParam = animeName && !isHomePage ? `&animeName=${animeName}` : '';
@@ -40,8 +46,14 @@ function PrincipalContainer() {
       setPage(nextPage);
     } catch (error) {
       console.error("Error fetching more figures data:", error);
+    } finally {
+      setIsLoadingMore(false);
     }
   };
+
+  if (isLoadingInitial) {
+    return <Loader />;
+  }
 
   const createRows = (list, itemsPerRow) => {
     const rows = [];
@@ -66,9 +78,10 @@ function PrincipalContainer() {
       ))}
 
       <div className="button-container">
+        {isLoadingMore ? <Loader /> :
         <button className="loadMoreButton" onClick={loadMore}>
           <span>Cargar más</span>
-        </button>
+        </button>}
       </div>
     </div>
   );

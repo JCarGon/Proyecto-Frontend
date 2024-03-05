@@ -20,7 +20,7 @@ function RegisterModal({ onClose }) {
       });
   
       if (response.ok) {
-        alert('Usuario creado correctamente');
+        alert('Usuario creado correctamente. Volviendo a la página de inicio.');
         onClose();
         navigate('/');
       } else {
@@ -112,7 +112,7 @@ function RegisterModal({ onClose }) {
                   message: 'El nombre no puede tener más de 20 caracteres'
                 },
                 pattern: {
-                  value: /^[A-Za-z\s]+$/,
+                  value: /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/,
                   message: 'El nombre solo puede contener caracteres alfabéticos'
                 }
               })}
@@ -126,7 +126,7 @@ function RegisterModal({ onClose }) {
               {...register('address', {
                 required: 'La dirección es requerida',
                 pattern: {
-                  value: /^c\/\s.+,\s\d+$/,
+                  value: /^c\/\s[áéíóúÁÉÍÓÚA-Za-z\s]+,\s\d+$/,
                   message: 'La dirección debe seguir el formato "c/ ..., número"'
                 }
               })}
@@ -170,7 +170,7 @@ function RegisterModal({ onClose }) {
                   message: 'La ciudad debe contener menos de 20 caracteres'
                 },
                 pattern: {
-                  value: /^[A-Za-z\s]+$/,
+                  value: /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/,
                   message: 'La ciudad solo puede contener caracteres alfabéticos'
                 }
               })}

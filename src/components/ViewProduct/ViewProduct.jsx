@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import LoginModal from '../Login/LoginModal';
+import Loader from "../Loader/Loader";
 import './ViewProduct.css';
 
 function ViewProduct({ figureId }) {
   const [figureData, setFigureData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const discount = 0.8;
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(`http://localhost:7000/v1/figures/${figureId}`);
         const data = await response.json();
-        console.log(data);
         setFigureData(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching figure data:", error);
+        setIsLoading(false);
       }
     };
 
@@ -50,8 +54,8 @@ function ViewProduct({ figureId }) {
     }
   };
 
-  if (!figureData) {
-    return <div>Cargando...</div>;
+  if (isLoading) {
+    return <Loader />;
   }
 
   const { name, character, company, price, dimensions, material, brand, principalImage, amount } = figureData;

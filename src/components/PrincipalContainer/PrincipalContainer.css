@@ -10,6 +10,20 @@
   justify-content: space-around;
 }
 
+.product-row img {
+  filter: drop-shadow(
+    0 0 10px rgba(0, 0, 0, .6)
+  );
+  transition: all 0.3s ease 0s;
+}
+
+.product-row img:hover {
+  filter: drop-shadow(
+    0 0 10px rgba(0, 0, 0, .8)
+  );
+  transition: all 0.3s ease 0s;
+}
+
 .loadMoreButton {
   padding: 1.3em 3em;
   font-size: 12px;

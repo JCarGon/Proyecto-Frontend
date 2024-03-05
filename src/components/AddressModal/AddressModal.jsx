@@ -5,7 +5,7 @@ function AddressModal({ user, onCancel, onAccept }) {
   const [newAddress, setNewAddress] = useState('');
   const [selectedOption, setSelectedOption] = useState('store');
   const inputStyle = {
-    backgroundColor: selectedOption === 'new' ? 'white' : '#f0f0f0', // Fondo blanco si 'new' está seleccionado, de lo contrario, gris
+    backgroundColor: selectedOption === 'new' ? 'white' : '#f0f0f0',
   };
 
   const handleSubmit = (e) => {
