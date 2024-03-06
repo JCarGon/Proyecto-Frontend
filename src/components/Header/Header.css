@@ -121,3 +121,28 @@ img {
 .user-dropdown button:hover {
   background-color: #e60000;
 }
+
+.cart-counter {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  background-color: #5192F5;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.username-welcome {
+  position: absolute;
+  top: 130px;
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -50,6 +50,7 @@ function Cart() {
 
   const handleRemoveFigure = async (figureId) => {
     const token = localStorage.getItem('token');
+    
     try {
       const response = await fetch(`http://localhost:7000/v1/users/figures/${figureId}`, {
         method: 'DELETE',
@@ -60,8 +61,12 @@ function Cart() {
       });
 
       if (response.ok) {
-        alert("Figura eliminada del carrito");
+        const currentCart = localStorage.getItem('userCart');
+        const cartItems = currentCart ? JSON.parse(currentCart) : [];
+        const updatedCartItems = cartItems.filter(item => item !== figureId);
+        localStorage.setItem('userCart', JSON.stringify(updatedCartItems));
         setUserFigures(userFigures.filter(figure => figure._id !== figureId));
+        alert("Figura eliminada del carrito");
       } else if (response.status === 401) {
         setIsLoginModalOpen(true);
       }

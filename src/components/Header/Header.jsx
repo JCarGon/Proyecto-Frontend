@@ -15,6 +15,18 @@ function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
+  const username = localStorage.getItem('username');
+  let cartCount = 0;
+  const userCartString = localStorage.getItem('userCart');
+  if (userCartString) {
+    try {
+      const cartItems = JSON.parse(userCartString);
+      cartCount = cartItems.length;
+    } catch (error) {
+      console.error("Error al parsear userCart", error);
+    }
+  }
+  
   const handleUserIconClick = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -34,6 +46,8 @@ function Header() {
       });
       if (response.ok || response.status === 401) {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userCart');
         alert("Sesión cerrada correctamente. Volviendo a la página de inicio.");
         navigate("/");
       }
@@ -75,7 +89,7 @@ function Header() {
       <input 
           type="text" 
           placeholder="Buscar una figura por nombre..."
-          value={searchText} 
+          value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button className="search" onClick={handleSearchClick}>
@@ -84,6 +98,7 @@ function Header() {
       </div>
       <div className="user-icon" onClick={handleUserIconClick}>
         <img src={user} alt="icono inicio de sesión" />
+        {username && <div className="username-welcome">Hola, {username}</div>}
         {showDropdown && (
           <div className="user-dropdown">
             <Link to="/userPage">Página de usuario</Link>
@@ -93,6 +108,7 @@ function Header() {
       </div>
       <div className="cart-icon" onClick={handleCartClick}>
         <img src={cart} alt="icono de carrito" />
+        {cartCount > 0 && <div className="cart-counter">{cartCount}</div>}
       </div>
       {isLoginModalOpen && <LoginModal onClose={handleLoginModalClose} onRegisterClick={handleRegisterModalOpen} />}
       {isRegisterModalOpen && <RegisterModal onClose={handleRegisterModalClose} />}

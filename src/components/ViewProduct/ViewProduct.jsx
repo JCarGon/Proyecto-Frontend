@@ -43,6 +43,12 @@ function ViewProduct({ figureId }) {
       });
 
       if (response.status === 200) {
+        const currentCart = localStorage.getItem('userCart');
+        const cartItems = currentCart ? JSON.parse(currentCart) : [];
+        if (!cartItems.includes(figureId)) {
+          cartItems.push(figureId);
+          localStorage.setItem('userCart', JSON.stringify(cartItems));
+        }
         alert("Figura añadida al carrito");
       } else if (response.status === 401) {
         setIsLoginModalOpen(true);

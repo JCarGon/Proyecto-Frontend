@@ -25,6 +25,22 @@ function LoginModal({ onClose, onRegisterClick  }) {
       if (response.ok) {
         const responseData = await response.json();
         localStorage.setItem('token', responseData.token);
+        try {
+          const response = await fetch('http://localhost:7000/v1/users/me', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${responseData.token}`
+            }
+          });
+          if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('username', data.username);
+            localStorage.setItem('userCart', JSON.stringify(data.favouritesFigures.map(figure => figure._id)));
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
         onClose();
         navigate('/');
       } else {

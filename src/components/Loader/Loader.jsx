@@ -4,7 +4,7 @@ import './Loader.css';
 function Loader() {
   return (
     <div className="loader-container">
-      <div class="loadership_RITHI">
+      <div className="loadership_RITHI">
         <div></div>
         <div></div>
         <div></div>
