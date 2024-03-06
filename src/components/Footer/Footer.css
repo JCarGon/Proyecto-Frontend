@@ -38,4 +38,8 @@
   transition: all 400ms ease;
 }
 
-.social-icons a img:hover {transform: scale(1.2);}
+.footer-logo {
+  transition: all 400ms ease;
+}
+
+.social-icons a img:hover, .footer-logo:hover {transform: scale(1.2);}

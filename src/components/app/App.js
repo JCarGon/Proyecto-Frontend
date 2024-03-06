@@ -10,12 +10,13 @@ import Cart from '../Cart/Cart';
 import OrderConfirmed from '../OrderConfirmed/OrderConfirmed';
 import ProductPage from '../ProductPage/ProductPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-
+import UserPage from '../UserPage/UserPage';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<LadingPage />} />
+      <Route path='/userPage' element={<UserPage />} />
       <Route path='/search/character/:name' element={<SearchPage />} />
       <Route path='/animes' element={<AnimesPage />}/>
       <Route path="/animes/:animeName" element={<AnimePage />} />

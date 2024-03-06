@@ -50,6 +50,7 @@ function ViewProduct({ figureId }) {
           localStorage.setItem('userCart', JSON.stringify(cartItems));
         }
         alert("Figura añadida al carrito");
+        window.location.reload();
       } else if (response.status === 401) {
         setIsLoginModalOpen(true);
       } else if (response.status === 409) {
