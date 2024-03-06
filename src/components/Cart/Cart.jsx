@@ -101,6 +101,7 @@ function Cart() {
       });
 
       if (response.ok) {
+        localStorage.removeItem('userCart');
         navigate('/orderConfirmed');
       } else if (response.status === 401) {
         setIsLoginModalOpen(true);
