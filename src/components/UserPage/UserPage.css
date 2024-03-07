@@ -33,3 +33,19 @@
 .user-info span {
   font-weight: normal;
 }
+
+.delete-user-btn {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #5192F5;
+  color: white;
+  border: none;
+}
+
+.delete-user-btn:hover {background-color: #5C84C1;}
