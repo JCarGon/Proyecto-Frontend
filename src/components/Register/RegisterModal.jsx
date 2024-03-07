@@ -29,7 +29,7 @@ function RegisterModal({ onClose }) {
       }
     } catch (error) {
       console.error('Error en la petición:', error);
-      alert('Error en la comunicación con el servidor');
+      alert('Error en la creación del usuario. Inténtelo de nuevo más tarde.');
     }
   };
 

@@ -52,12 +52,16 @@ function ViewProduct({ figureId }) {
         alert("Figura añadida al carrito");
         window.location.reload();
       } else if (response.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userCart');
         setIsLoginModalOpen(true);
       } else if (response.status === 409) {
         alert("Ya tienes esta figura en el carrito, solo puedes añadirla una vez");
       }
     } catch (error) {
       console.error("Error al añadir al carrito:", error);
+      alert("Ha habido un error al añadir la figura al carrito. Inténtelo de nuevo más tarde.")
     }
   };
 

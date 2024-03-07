@@ -38,6 +38,9 @@ function Cart() {
           setUserFigures(data.favouritesFigures || []);
           setUserAddress(data.address);
         } else if (response.status === 401) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('username');
+          localStorage.removeItem('userCart');
           setIsLoginModalOpen(true);
         }
       } catch (error) {
@@ -68,6 +71,9 @@ function Cart() {
         setUserFigures(userFigures.filter(figure => figure._id !== figureId));
         alert("Figura eliminada del carrito");
       } else if (response.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userCart');
         setIsLoginModalOpen(true);
       }
     } catch (error) {
@@ -104,6 +110,9 @@ function Cart() {
         localStorage.removeItem('userCart');
         navigate('/orderConfirmed');
       } else if (response.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userCart');
         setIsLoginModalOpen(true);
       }
     } catch (error) {
