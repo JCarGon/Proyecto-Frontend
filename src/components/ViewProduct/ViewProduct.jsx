@@ -55,6 +55,7 @@ function ViewProduct({ figureId }) {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
         localStorage.removeItem('userCart');
+        alert("Sesión expirada. Inicie sesión de nuevo.");
         setIsLoginModalOpen(true);
       } else if (response.status === 409) {
         alert("Ya tienes esta figura en el carrito, solo puedes añadirla una vez");

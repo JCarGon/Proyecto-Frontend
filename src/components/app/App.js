@@ -6,6 +6,7 @@ import AnimesPage from '../AnimesPage/AnimesPage';
 import AnimePage from '../AnimePage/AnimePage';
 import QuienesSomos from '../QuienesSomos/QuienesSomos';
 import Faqs from '../Faqs/Faqs';
+import ContactPage from '../ContactPage/ContactPage';
 import Cart from '../Cart/Cart';
 import OrderConfirmed from '../OrderConfirmed/OrderConfirmed';
 import ProductPage from '../ProductPage/ProductPage';
@@ -22,7 +23,7 @@ function App() {
       <Route path="/animes/:animeName" element={<AnimePage />} />
       <Route path='/animes/:animeName/:id' element={<ProductPage />} />
       <Route path='/WAW' element={<QuienesSomos />} />
-      <Route path='/contact' />
+      <Route path='/contact' element={<ContactPage />} />
       <Route path='/faqs' element={<Faqs />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/orderConfirmed' element={<OrderConfirmed />} />

@@ -30,6 +30,7 @@ function Header() {
   const handleUserIconClick = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
+      alert("Inicie sesión para acceder al perfil de usuario.");
       setIsLoginModalOpen(true);
     } else {
       setShowDropdown(!showDropdown);
@@ -78,6 +79,7 @@ function Header() {
     if (token) {
       navigate('/cart');
     } else {
+      alert("Inicie sesión para acceder al carrito.");
       setIsLoginModalOpen(true);
     }
   };

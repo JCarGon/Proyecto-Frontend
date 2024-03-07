@@ -28,6 +28,7 @@ function UserPage() {
         const data = text ? JSON.parse(text) : {};
         setUserData(data);
       } else if (response.status === 401) {
+        alert("Sesión expirada. Inicie sesión de nuevo.");
         clearUserData();
       }
     } catch (error) {
@@ -50,6 +51,7 @@ function UserPage() {
           alert("Usuario eliminado correctamente.");
           clearUserData();
         } else if (response.status === 401) {
+          alert("Sesión expirada. Inicie sesión de nuevo.");
           clearUserData();
         }
       } catch (error) {
@@ -59,10 +61,10 @@ function UserPage() {
   };
 
   const clearUserData = () => {
-    navigate("/");
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('userCart');
+    navigate("/");
   };
 
   return (

@@ -18,11 +18,6 @@ function Cart() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
-      setIsLoginModalOpen(true);
-      return;
-    }
-
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:7000/v1/users/me', {
@@ -41,6 +36,7 @@ function Cart() {
           localStorage.removeItem('token');
           localStorage.removeItem('username');
           localStorage.removeItem('userCart');
+          alert("Sesión expirada. Inicie sesión de nuevo.");
           setIsLoginModalOpen(true);
         }
       } catch (error) {
@@ -74,6 +70,7 @@ function Cart() {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
         localStorage.removeItem('userCart');
+        alert("Sesión expirada. Inicie sesión de nuevo.");
         setIsLoginModalOpen(true);
       }
     } catch (error) {
@@ -113,6 +110,7 @@ function Cart() {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
         localStorage.removeItem('userCart');
+        alert("Sesión expirada. Inicie sesión de nuevo.");
         setIsLoginModalOpen(true);
       }
     } catch (error) {

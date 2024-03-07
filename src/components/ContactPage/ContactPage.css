@@ -1,0 +1,125 @@
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: 'Sakurata';
+  font-size: 3rem;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: 550px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #979797;
+  border-radius: 10px;
+}
+
+.contact-us-info {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.contact-form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.attrs-contact {
+  display: flex;
+  align-items: center;
+}
+
+.attrs-contact p {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+.attrs-contact input {
+  width: 250px;
+  height: 30px;
+  font-size: 16px;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+.attrs-contact input:hover, .attrs-contact input:focus {
+  border: 3px solid #5192F5;
+}
+
+.attrs-contact span {
+  margin-left: 10px;
+  color: white;
+}
+.doubt {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+textarea {
+  width: 750px;
+  height: 130px;
+  resize: none;
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-form form button {
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5192F5;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.contact-form form button:hover {
+  background-color: #5C84C1;
+}
+
+.visit-us {
+  text-align: center;
+}
+
+.visit-us p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 50px 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}

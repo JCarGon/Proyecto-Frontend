@@ -24,8 +24,7 @@ function RegisterModal({ onClose }) {
         onClose();
         navigate('/');
       } else {
-        const errorData = await response.json();
-        alert(errorData.message || 'Error en la comunicación con el servidor');
+        alert('Error en la creación del usuario. Inténtelo de nuevo más tarde.');
       }
     } catch (error) {
       console.error('Error en la petición:', error);
