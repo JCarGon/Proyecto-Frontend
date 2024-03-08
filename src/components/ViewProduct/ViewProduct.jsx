@@ -81,7 +81,7 @@ function ViewProduct({ figureId }) {
 
   return (
     <div className="view-container">
-      <div>
+      <div className="images-carrousel">
         <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} />
         <div className="image-thumbnails">
           {[figureData.principalImage, ...figureData.images].map((img, index) => (
