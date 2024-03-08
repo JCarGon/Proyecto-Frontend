@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoginModal from '../Login/LoginModal';
 import Loader from "../Loader/Loader";
+import zoom from "../../images/zoom-in.webp";
 import './ViewProduct.css';
 
 function ViewProduct({ figureId }) {
@@ -8,8 +9,13 @@ function ViewProduct({ figureId }) {
   const [currentImage, setCurrentImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const discount = 0.8;
+
+  const handleOpenModal = () => setIsModalOpen(true);
+
+  const handleCloseModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,6 +88,7 @@ function ViewProduct({ figureId }) {
   return (
     <div className="view-container">
       <div className="images-carrousel">
+        <button className="open-modal-btn" onClick={handleOpenModal}><img src={zoom} alt="zoom for actual figure"></img></button>
         <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} />
         <div className="image-thumbnails">
           {[figureData.principalImage, ...figureData.images].map((img, index) => (
@@ -116,6 +123,12 @@ function ViewProduct({ figureId }) {
           </button>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="modal">
+          <span className="close-modal-btn" onClick={handleCloseModal}>X</span>
+          <img src={`/resources/figures/${currentImage}`} alt="Imagen ampliada" className="modal-image" />
+        </div>
+      )}
       {isLoginModalOpen && <LoginModal onClose={() => setIsLoginModalOpen(false)} />}
     </div>
   );
