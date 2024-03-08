@@ -8,10 +8,11 @@ function RegisterModal({ onClose }) {
   const { register, handleSubmit, formState: { errors, isValid } } = useForm({
     mode: "onChange"
   });
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const onSubmit = async data => {
     try {
-      const response = await fetch('http://localhost:7000/v1/users', {
+      const response = await fetch(`${baseUrl}/v1/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

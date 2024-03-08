@@ -9,6 +9,7 @@ function UserPage() {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     fetchUserData();
@@ -16,7 +17,7 @@ function UserPage() {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("http://localhost:7000/v1/users/me", {
+      const response = await fetch(`${baseUrl}/v1/users/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +41,7 @@ function UserPage() {
     const confirmation = window.confirm("¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.");
     if (confirmation) {
       try {
-        const response = await fetch("http://localhost:7000/v1/users/me", {
+        const response = await fetch(`${baseUrl}/v1/users/me`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

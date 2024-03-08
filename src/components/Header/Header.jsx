@@ -13,6 +13,7 @@ function Header() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
   const username = localStorage.getItem('username');
@@ -39,7 +40,7 @@ function Header() {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:7000/v1/logout", {
+      const response = await fetch(`${baseUrl}/v1/logout`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`,

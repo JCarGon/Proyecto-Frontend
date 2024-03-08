@@ -6,6 +6,7 @@ import './Login.css';
 function LoginModal({ onClose, onRegisterClick  }) {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const onSubmit = async data => {
     const body = {
@@ -14,7 +15,7 @@ function LoginModal({ onClose, onRegisterClick  }) {
     };
   
     try {
-      const response = await fetch('http://localhost:7000/v1/login', {
+      const response = await fetch(`${baseUrl}/v1/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +27,7 @@ function LoginModal({ onClose, onRegisterClick  }) {
         const responseData = await response.json();
         localStorage.setItem('token', responseData.token);
         try {
-          const response = await fetch('http://localhost:7000/v1/users/me', {
+          const response = await fetch(`${baseUrl}/v1/users/me`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

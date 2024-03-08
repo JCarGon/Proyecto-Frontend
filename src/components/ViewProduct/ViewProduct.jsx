@@ -8,13 +8,14 @@ function ViewProduct({ figureId }) {
   const [currentImage, setCurrentImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const discount = 0.8;
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:7000/v1/figures/${figureId}`);
+        const response = await fetch(`${baseUrl}/v1/figures/${figureId}`);
         const data = await response.json();
         setFigureData(data);
         setCurrentImage(data.principalImage);
@@ -26,7 +27,7 @@ function ViewProduct({ figureId }) {
     };
 
     fetchData();
-  }, [figureId]);
+  }, [baseUrl, figureId]);
 
   const handleImageClick = (img) => {
     setCurrentImage(img);
@@ -40,7 +41,7 @@ function ViewProduct({ figureId }) {
     }
 
     try {
-      const response = await fetch(`http://localhost:7000/v1/users/figures/${figureId}`, {
+      const response = await fetch(`${baseUrl}/v1/users/figures/${figureId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

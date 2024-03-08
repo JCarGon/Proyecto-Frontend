@@ -11,7 +11,7 @@ function PrincipalContainer() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [page, setPage] = useState(1);
   const pageSize = 4;
-
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const { animeName } = useParams() || {};
@@ -20,7 +20,7 @@ function PrincipalContainer() {
     const fetchInitialFigures = async () => {
       try {
         const animeQueryParam = animeName && !isHomePage ? `&animeName=${animeName}` : '';
-        const response = await fetch(`http://localhost:7000/v1/figures?page=${page}&pageSize=${pageSize}${animeQueryParam}`);
+        const response = await fetch(`${baseUrl}/v1/figures?page=${page}&pageSize=${pageSize}${animeQueryParam}`);
         const data = await response.json();
 
         setFigureList(data);
@@ -32,6 +32,7 @@ function PrincipalContainer() {
     };
 
     fetchInitialFigures();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animeName, isHomePage]);
 
   const loadMore = async () => {
@@ -39,7 +40,7 @@ function PrincipalContainer() {
     try {
       const nextPage = page + 1;
       const animeQueryParam = animeName && !isHomePage ? `&animeName=${animeName}` : '';
-      const response = await fetch(`http://localhost:7000/v1/figures?page=${nextPage}&pageSize=${pageSize}${animeQueryParam}`);
+      const response = await fetch(`${baseUrl}/v1/figures?page=${nextPage}&pageSize=${pageSize}${animeQueryParam}`);
       const data = await response.json();
 
       setFigureList(prevFigures => [...prevFigures, ...data]);

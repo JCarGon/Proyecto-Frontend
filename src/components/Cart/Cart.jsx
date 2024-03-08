@@ -14,13 +14,14 @@ function Cart() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const navigate = useNavigate();
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const discount = 0.8;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:7000/v1/users/me', {
+        const response = await fetch(`${baseUrl}/v1/users/me`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -45,13 +46,13 @@ function Cart() {
     };
 
     fetchData();
-  }, []);
+  }, [baseUrl]);
 
   const handleRemoveFigure = async (figureId) => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`http://localhost:7000/v1/users/figures/${figureId}`, {
+      const response = await fetch(`${baseUrl}/v1/users/figures/${figureId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ function Cart() {
 
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:7000/v1/users/confirmOrder', {
+      const response = await fetch(`${baseUrl}/v1/users/confirmOrder`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

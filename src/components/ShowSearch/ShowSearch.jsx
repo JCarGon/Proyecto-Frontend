@@ -6,12 +6,13 @@ import './ShowSearch.css';
 function ShowSearch({ name }) {
   const [figureList, setFigureList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const fetchFigures = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:7000/v1/figures?name=${name}`);
+        const response = await fetch(`${baseUrl}/v1/figures?name=${name}`);
         const data = await response.json();
         setFigureList(data);
         setIsLoading(false);
@@ -24,7 +25,7 @@ function ShowSearch({ name }) {
     if (name) {
       fetchFigures();
     }
-  }, [name]);
+  }, [baseUrl, name]);
 
   return (
     <div className="show-search">
