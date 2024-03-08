@@ -20,3 +20,8 @@ code {
   font-family: 'SAKURATA';
   src: local('SAKURATA'), url('../public/SAKURATA.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Franklin Gothic Medium';
+  src: local('framd'), url('../public/framd.ttf') format('truetype');
+}
