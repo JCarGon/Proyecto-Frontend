@@ -12,6 +12,7 @@ function ContactPage() {
     telefono: "",
     consulta: "",
   });
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,11 +45,37 @@ function ContactPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (canSubmit()) {
-      alert("Formulario enviado. Nos pondremos en contacto tan pronto como podamos.");
-      handleReset();
+      const messageBody = {
+        name: formData.nombre,
+        surnames: formData.apellidos,
+        email: formData.email,
+        tlf: formData.telefono,
+        msg: formData.consulta,
+      };
+
+      try {
+        const response = await fetch(`${baseUrl}/v1/messages`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(messageBody),
+        });
+
+        if (response.ok) {
+          alert("Formulario enviado. Nos pondremos en contacto tan pronto como podamos.");
+          handleReset();
+        } else {
+          const errorData = await response.json();
+          alert(errorData.message || 'Error al enviar el formulario. Por favor, inténtelo de nuevo.');
+        }
+      } catch (error) {
+        console.error('Error en la petición:', error);
+        alert('Error al enviar el formulario. Por favor, inténtelo de nuevo.');
+      }
     } else {
       alert("Por favor, rellene todos los campos correctamente.");
     }
