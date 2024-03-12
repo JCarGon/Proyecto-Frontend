@@ -74,6 +74,10 @@ img {
 }
 
 .user-img-logged-in {
+  transition: transform 300ms ease-out;
+}
+
+.user-img-logged-in {
   width: 50px;
   position: relative;
   top: -10px;
@@ -129,7 +133,7 @@ img {
 
 .cart-counter {
   position: absolute;
-  top: 60px;
+  top: 40px;
   right: 60px;
   background-color: #5192F5;
   color: white;
@@ -145,7 +149,7 @@ img {
 
 .username-welcome {
   position: absolute;
-  top: 90px;
+  top: 92px;
   display: flex;
   text-align: center;
   font-size: 18px;
