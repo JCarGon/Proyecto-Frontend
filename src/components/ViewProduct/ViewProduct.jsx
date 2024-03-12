@@ -47,7 +47,7 @@ function ViewProduct({ figureId }) {
     }
 
     try {
-      const response = await fetch(`${baseUrl}/v1/users/figures/${figureId}`, {
+      const response = await fetch(`${baseUrl}/v1/cart/${figureId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

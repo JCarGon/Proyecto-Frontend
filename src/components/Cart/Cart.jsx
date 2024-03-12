@@ -31,7 +31,7 @@ function Cart() {
 
         if (response.ok) {
           const data = await response.json();
-          setUserFigures(data.favouritesFigures || []);
+          setUserFigures(data.userCart || []);
           setUserAddress(data.address);
         } else if (response.status === 401) {
           localStorage.removeItem('token');
@@ -52,7 +52,7 @@ function Cart() {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`${baseUrl}/v1/users/figures/${figureId}`, {
+      const response = await fetch(`${baseUrl}/v1/cart/${figureId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ function Cart() {
 
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`${baseUrl}/v1/users/confirmOrder`, {
+      const response = await fetch(`${baseUrl}/v1/cart/confirmOrder`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

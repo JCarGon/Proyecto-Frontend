@@ -37,7 +37,7 @@ function LoginModal({ onClose, onRegisterClick  }) {
           if (response.ok) {
             const data = await response.json();
             localStorage.setItem('username', data.username);
-            localStorage.setItem('userCart', JSON.stringify(data.favouritesFigures.map(figure => figure._id)));
+            localStorage.setItem('userCart', JSON.stringify(data.userCart.map(figure => figure._id)));
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
