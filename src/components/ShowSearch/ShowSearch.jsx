@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Product from '../Product/Product';
 import Loader from "../Loader/Loader";
 import './ShowSearch.css';
@@ -7,6 +8,7 @@ function ShowSearch({ name }) {
   const [figureList, setFigureList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const baseUrl = process.env.REACT_APP_BASE_URL;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFigures = async () => {
@@ -37,7 +39,7 @@ function ShowSearch({ name }) {
           <Product key={index} figure={figure} />
         ))
       ) : (
-        <p>No se encontraron figuras del personaje "{name}".</p>
+        navigate('/not-found')
       )}
     </div>
   );

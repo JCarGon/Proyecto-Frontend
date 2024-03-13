@@ -5,13 +5,28 @@
   text-align: center;
 }
 .show-search .product-container .product-image {
-  width: 200px;
-  height: auto;
+  width: 250px;
+  height: 250px;
 }
 .search-title {margin-top: 50px;}
 .show-search .product-container {
   display: flex;
   flex-direction: row;
+  padding: 5px;
+  border: 2px solid black;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+.show-search .product-container img {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.show-search .product-container:hover {
+  border: 2px solid  #5192F5;
+  box-shadow: 0px 8px 15px rgba(81, 146, 245, 0.5);
+}
+.show-search .product-container:hover img {
+  filter: grayscale(0%);
 }
 .show-search .product-title {
   margin-top: 0px;

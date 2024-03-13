@@ -25,8 +25,8 @@ function QuienesSomos() {
           deseo de las personas coleccionistas o que, simplemente, quieren tener una figura de su anime
           favorito.</p>
           
-          <p className='waw-text'>PD: este diseño y aplicación web está hecha por una persona, como proyecto de final de
-          FP de Desarrollo de Aplicaciones Web. NO es una tienda real.</p>
+          <p className='waw-text'>PD: este diseño y aplicación web está hecha por una persona, como proyecto final para 
+          Desarrollo de Aplicaciones Web (FP DAW). NO es una tienda real.</p>
         <img src={logoEmpresa} alt="Imagen del logo de la empresa" />
       </div>
       <Footer />

@@ -29,12 +29,18 @@
 .nav-link a {
   text-decoration: none;
   color: black;
+  background: linear-gradient(135deg, #5192F5 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 500ms ease;
 }
 
-.nav-link:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  transition: transform 300ms ease-out;
+.nav-link a:hover {
+  background-position: 0 100%;
 }
 
 .nav-link ul {
