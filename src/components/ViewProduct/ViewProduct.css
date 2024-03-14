@@ -159,8 +159,9 @@
 }
 
 .modal-image {
-  width: 65vw;
-  height: 90vh;
+  width: 70vw;
+  height: 95vh;
+  object-fit: contain;
 }
 
 .close-modal-btn {
@@ -170,4 +171,11 @@
   font-size: 40px;
   cursor: pointer;
   color: black;
+  transition: transform 300ms ease-out;
+}
+
+.close-modal-btn:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+  transition: transform 300ms ease-out;
 }
