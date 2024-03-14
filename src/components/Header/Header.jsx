@@ -107,7 +107,9 @@ function Header() {
           alt="icono inicio de sesión"
           className={username ? "user-img-logged-in" : "user-img"}
         />
-        {username && <div className="username-welcome">Hola, {username}</div>}
+        <div className="username-welcome">
+          {username ? `Hola, ${username}` : "Iniciar sesión"}
+        </div>
         {showDropdown && (
           <div className="user-dropdown">
             <Link to="/userPage">Página de usuario</Link>

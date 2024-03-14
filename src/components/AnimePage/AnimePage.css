@@ -1,0 +1,9 @@
+.animePage-container {
+  display: flex;
+  justify-content: center;
+}
+
+.animePage-container img {
+  width: 20vw;
+  margin: 40px auto -50px auto;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import Product from '../Product/Product';
 import Loader from '../Loader/Loader';
-import promoImage from '../../images/promoImage.webp';
+import banner from '../../images/banner.webp';
 import './PrincipalContainer.css';
 
 function PrincipalContainer() {
@@ -68,7 +68,7 @@ function PrincipalContainer() {
 
   return (
     <div>
-      <img className="promo-image" src={promoImage} alt="imagen de promoción por nueva apertura"></img>
+      <img className="promo-image" src={banner} alt="imagen de promoción por nueva apertura"></img>
       
       {rows.map((row, rowIndex) => (
         <div className="product-row" key={rowIndex}>

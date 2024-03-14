@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import logoDBZ from '../../images/logoDBZ.webp';
-import LogoMHA from '../../images/LogoMHA.webp';
-import LogoAOT from '../../images/LogoAOT.webp';
-import LogoOnePiece from '../../images/LogoOnePiece.webp';
-import LogoNaruto from '../../images/LogoNaruto.webp';
-import LogoKNY from '../../images/LogoKNY.webp';
+import logoDBZ from '../../images/DragonBallZ.webp';
+import LogoMHA from '../../images/MyHeroAcademia.webp';
+import LogoAOT from '../../images/AttackOnTitan.webp';
+import LogoOnePiece from '../../images/OnePiece.webp';
+import LogoNaruto from '../../images/Naruto.webp';
+import LogoKNY from '../../images/KimetsuNoYaiba.webp';
 import "./Nav.css";
 
 function Nav() {
