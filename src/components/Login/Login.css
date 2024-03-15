@@ -60,7 +60,7 @@
   font-weight: bold;
 }
 
-.buttonLogin:hover, .buttonRegister:hover {
+.buttonLogin:hover, .registerButton:hover {
   background-color: #5C84C1;
 }
 
