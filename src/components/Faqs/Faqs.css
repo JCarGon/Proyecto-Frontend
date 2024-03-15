@@ -3,12 +3,14 @@
   margin: auto;
   padding: 20px;
 }
+
 .faqs-container h1 {
   text-align: center;
   margin-bottom: 50px;
   font-family: 'Sakurata';
   font-size: 3rem;
 }
+
 .faqs-container details {
   background-color: transparent;
   border: 1px solid black;
@@ -16,10 +18,12 @@
   padding: 10px;
   margin-bottom: 10px;
 }
+
 .faqs-container summary {
   font-weight: bold;
   cursor: pointer;
 }
+
 .faqs-container p {
   text-align: center;
 }

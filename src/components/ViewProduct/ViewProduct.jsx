@@ -103,14 +103,14 @@ function ViewProduct({ figureId }) {
         </div>
       </div>
       <div>
-        <div className="view-title">{name}</div>
-        <div className="view-character">Figura de {character}, personaje del manga y anime {company}</div>
-        <div className="view-brand">Marca: {brand}</div>
-        <div className="view-company">Franquicia: {company}</div>
-        <div className="view-character-name">Nombre de personaje: {character}</div>
-        <div className="view-material">Materiales: {material}</div>
-        <div className="view-dimensions">Dimensiones: {dimensions}</div>
-        <div className="view-amount">Existencias: {amount}</div>
+        <p className="view-title">{name}</p>
+        <p className="view-character">Figura de {character}, personaje del manga y anime {company}</p>
+        <p className="view-brand">Marca: {brand}</p>
+        <p className="view-company">Franquicia: {company}</p>
+        <p className="view-character-name">Nombre de personaje: {character}</p>
+        <p className="view-material">Materiales: {material}</p>
+        <p className="view-dimensions">Dimensiones: {dimensions}</p>
+        <p className="view-amount">Existencias: {amount}</p>
         <div className="price-button-container">
           <div className="view-price">
             <div className="prices-info">

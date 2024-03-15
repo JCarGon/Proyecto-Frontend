@@ -25,3 +25,7 @@ code {
   font-family: 'Franklin Gothic Medium';
   src: local('framd'), url('../public/framd.ttf') format('truetype');
 }
+
+p, span {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

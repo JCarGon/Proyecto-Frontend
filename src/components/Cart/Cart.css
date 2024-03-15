@@ -4,14 +4,17 @@
   align-items: center;
   text-align: center;
 }
+
 .cart-title {
   font-family: 'Sakurata';
   font-size: 3rem;
 }
+
 .cart-content .product-container .product-image {
   width: 200px;
   height: auto;
 }
+
 .confirm-purchase {
   padding: 1.3em 3em;
   font-size: 12px;
@@ -28,57 +31,67 @@
   outline: none;
   border: 2px solid #5192F5;
 }
+
 .confirm-purchase:hover {
   background-color: #5192F5;
   box-shadow: 0px 25px 20px #5c84c1;
   color: #fff;
   transform: translateY(-7px);
 }
+
 .confirm-purchase:hover span {
   color: #fff;
 }
+
 .confirm-purchase:active {
   transform: translateY(-1px);
 }
+
 .confirm-purchase span {
   width: 360px;
   text-align: center;
   color: black;
   font-size: 24px;
-  font-family: 'Franklin Gothic Medium';
   font-weight: 400;
   word-wrap: break-word;
 }
+
 .cart-item {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
+
 .cart-figure-image {
   width: 300px;
   height: 300px;
   object-fit: contain;
   border-radius: 10px;
 }
+
 .cart-figure-info {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .cart-figure-title, .cart-figure-price {
   margin: 5px 0;
 }
+
 .delete-figure-cart {
   cursor: pointer;
   width: 35px;
   transition: transform 300ms ease-out;
   margin-left: 30px;
 }
+
 .delete-figure-cart:hover {
   transform: scale(1.2);
   transition: transform 300ms ease-out;
 }
+
 .confirm-purchase {
   margin-top: 20px;
 }

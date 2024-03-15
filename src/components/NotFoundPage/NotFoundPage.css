@@ -4,6 +4,7 @@
   align-items: center;
   margin: 50px 20px;
 }
+
 .ko-container p {
   font-size: 1.4rem;
   font-weight: bold;
@@ -11,4 +12,5 @@
   text-align: center;
   margin-right: 50px;
 }
+
 .imgKO {width: 500px;}

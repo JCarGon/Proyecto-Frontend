@@ -4,11 +4,14 @@
   align-items: center;
   text-align: center;
 }
+
 .show-search .product-container .product-image {
   width: 250px;
   height: 250px;
 }
+
 .search-title {margin-top: 50px;}
+
 .show-search .product-container {
   display: flex;
   flex-direction: row;
@@ -21,19 +24,25 @@
   border-radius: 20px;
   border: 2px solid rgba( 255, 255, 255, 0.2 );
 }
+
 .show-search .product-container img {
   filter: grayscale(100%);
   transition: filter 0.5s ease;
 }
+
 .show-search .product-container:hover {
   border: 2px solid  white;
   background: rgba( 255, 255, 255, 0.3 );
 }
+
 .show-search .product-container:hover img {filter: grayscale(0%);}
+
 .show-search .product-title {
   margin-top: 0px;
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .show-search .product-price {margin: 0px;}
+
 .show-search .product-info {margin-top: 10px;}

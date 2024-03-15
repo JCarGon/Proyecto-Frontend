@@ -1,37 +1,47 @@
 .user-page-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 20px;
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: max-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.user-info h2 {
+h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.user-info p {
-  margin: 5px 0;
-  font-size: 20px;
-  font-weight: bold;
+.user-info, .purchase-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid black;
+  background: rgba( 255, 255, 255, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.3 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border-radius: 20px;
+  border: 2px solid rgba( 255, 255, 255, 0.2 );
 }
 
-.user-info span {
+.user-info p, .purchase-info p {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.user-info span, .purchase-info span {
   font-weight: normal;
+  font-size: 18px;
+}
+
+.purchases-info {
+  display: grid;
+  grid-template-columns: 600px 600px;
+  justify-content: space-around;
 }
 
 .delete-user-btn {
@@ -43,9 +53,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  background-color: #5192F5;
+  background-color: #ff4d4d;
   color: white;
   border: none;
 }
 
-.delete-user-btn:hover {background-color: #5C84C1;}
+.delete-user-btn:hover {background-color: #e60000;}
