@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from 'react-router-dom';
 import logoDBZ from '../../images/DragonBallZ.webp';
 import LogoMHA from '../../images/MyHeroAcademia.webp';
@@ -9,9 +9,10 @@ import LogoKNY from '../../images/KimetsuNoYaiba.webp';
 import "./Nav.css";
 
 function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="nav-container">
-      <div className="nav-links">
+      <div className={`nav-links ${isOpen && "open"}`}>
         <div className="nav-link">
           <Link to="/">INICIO</Link>
         </div>
@@ -35,6 +36,11 @@ function Nav() {
         <div className="nav-link">
           <Link to="/faqs">FAQS</Link>
         </div>
+      </div>
+      <div className={`nav-toggle ${isOpen && "open"}`} onClick={ () => setIsOpen(!isOpen)} >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   );

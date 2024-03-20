@@ -108,3 +108,126 @@
 .nav-link ul li a:hover {
   transform: scale(1.1);
 }
+
+.nav-toggle {
+  display: none;
+}
+
+@media (width <= 1440px) {
+  .nav-link {
+    font-size: 1.8rem;
+  }
+}
+
+@media (width <= 1200px) {
+  .nav-link {
+    font-size: 1.6rem;
+  }
+}
+
+@media (width <= 1100px) {
+  .nav-link {
+    font-size: 1.5rem;
+  }
+}
+
+@media (width <= 1000px) {
+  .nav-link {
+    font-size: 1.3rem;
+  }
+}
+
+@media (width <= 800px) {
+  .nav-container {
+    position: fixed;
+    top: -5px;
+    right: 20px;
+    z-index: 1;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    top: 80px;
+    right: 0px;
+    height: -webkit-fill-available;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  .nav-link a {
+    background: none;
+    height: max-content;
+    color: black;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    transition: none;
+  }
+
+  .nav-link a:hover {
+    background: none;
+    color: black;
+  }
+
+  .nav-links.open {
+    visibility: visible;
+    width: max-content;
+    height: max-content;
+    padding: 20px;
+  }
+
+  .nav-links.open .nav-link {
+    width: max-content;
+    margin-bottom: 70px;
+  }
+
+  .nav-links.open .nav-link:nth-child(1) {
+    margin-top: 20px;
+  }
+
+  .nav-links.open .nav-link:nth-child(5) {
+    margin-bottom: 20px;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column;
+    margin: 15px;
+  }
+
+  .nav-toggle span {
+    z-index: 1;
+    width: 30px;
+    height: 4px;
+    background: black;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transform-origin: 5px 0px;
+    transition: all 0.2s linear;
+  }
+
+  .nav-toggle.open > span {
+    transform: rotate(45deg) translate(0px, 0px);
+  }
+
+  .nav-toggle.open > span:nth-child(2) {
+    display: none;
+  }
+
+  .nav-toggle.open > span:nth-child(3) {
+    transform: rotate(-45deg) translate(-5px, 1px);
+  }
+
+  .nav-link ul {
+    display: none;
+  }
+}

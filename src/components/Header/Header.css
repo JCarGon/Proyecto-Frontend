@@ -244,8 +244,14 @@ a {text-decoration: none;}
 
 @media (width <= 800px) {
   .header-container {
+    position: fixed;
     padding-top: 20px;
     padding-bottom: 20px;
+    justify-content: start;
+    width: 100%;
+    z-index: 1;
+    background-color: #F1D8A3;
+    box-shadow: 0 0 8px 8px #F1D8A3;
   }
 
   .nombreEmpresa {
@@ -253,7 +259,7 @@ a {text-decoration: none;}
   }
 
   .search-bar {
-    max-width: 80%;
+    max-width: 65%;
   }
 
   .user-icon, .cart-icon {
