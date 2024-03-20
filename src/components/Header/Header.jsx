@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import search from "../../images/search.webp";
 import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
+import home from '../../images/home.svg';
 import LoginModal from "../Login/LoginModal";
 import RegisterModal from "../Register/RegisterModal";
 import "./Header.css";
@@ -86,50 +87,70 @@ function Header() {
   };
 
   return (
-    <div className="header-container">
-      <Link to="/">
-        <p className="nombreEmpresa">FRIKILEVEL</p>
-      </Link>
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Buscar una figura por nombre..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <button className="search" onClick={handleSearchClick}>
-          <img src={search} alt="icono de búsqueda" />
-        </button>
-      </div>
-      <div className="user-icon" onClick={handleUserIconClick}>
-        <img
-          src={user}
-          alt="icono inicio de sesión"
-          className={username ? "user-img-logged-in" : "user-img"}
-        />
-        <div className="username-welcome">
-          {username ? `Hola, ${username}` : "Iniciar sesión"}
+    <div>
+      <div className="header-container">
+        <Link to="/">
+          <p className="nombreEmpresa">FRIKILEVEL</p>
+        </Link>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Buscar una figura por nombre..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button className="search" onClick={handleSearchClick}>
+            <img src={search} alt="icono de búsqueda" />
+          </button>
         </div>
-        {showDropdown && (
-          <div className="user-dropdown">
-            <Link to="/userPage">Página de usuario</Link>
-            <button onClick={logout}>Cerrar sesión</button>
+        <div className="user-icon" onClick={handleUserIconClick}>
+          <img
+            src={user}
+            alt="icono inicio de sesión"
+            className={username ? "user-img-logged-in" : "user-img"}
+          />
+          <div className="username-welcome">
+            {username ? `Hola, ${username}` : "Iniciar sesión"}
           </div>
+          {showDropdown && (
+            <div className="user-dropdown">
+              <Link to="/userPage">Página de usuario</Link>
+              <button onClick={logout}>Cerrar sesión</button>
+            </div>
+          )}
+        </div>
+        <div className="cart-icon" onClick={handleCartClick}>
+          <img src={cart} alt="icono de carrito" />
+          {cartCount > 0 && <div className="cart-counter">{cartCount}</div>}
+        </div>
+        {isLoginModalOpen && (
+          <LoginModal
+            onClose={handleLoginModalClose}
+            onRegisterClick={handleRegisterModalOpen}
+          />
+        )}
+        {isRegisterModalOpen && (
+          <RegisterModal onClose={handleRegisterModalClose} />
         )}
       </div>
-      <div className="cart-icon" onClick={handleCartClick}>
-        <img src={cart} alt="icono de carrito" />
-        {cartCount > 0 && <div className="cart-counter">{cartCount}</div>}
+      <div className="header-container-responsive">
+        <Link to="/">
+          <img className="go-home" alt="icono de una casa para ir a Inicio" src={home} />
+        </Link>
+        <div className="user-icon-responsive" onClick={handleUserIconClick}>
+          <img className="user-responsive" alt="icono de usuario para iniciar sesión o ir al perfil" src={user} />
+          {showDropdown && (
+            <div className="user-dropdown">
+              <Link to="/userPage">Página de usuario</Link>
+              <button onClick={logout}>Cerrar sesión</button>
+            </div>
+          )}
+        </div>
+        <div className="cart-icon-responsive" onClick={handleCartClick}>
+          <img className="usercart-responsive" alt="icono del carrito del usuario" src={cart} />
+          {cartCount > 0 && <div className="cart-counter-responsive">{cartCount}</div>}
+        </div>
       </div>
-      {isLoginModalOpen && (
-        <LoginModal
-          onClose={handleLoginModalClose}
-          onRegisterClick={handleRegisterModalOpen}
-        />
-      )}
-      {isRegisterModalOpen && (
-        <RegisterModal onClose={handleRegisterModalClose} />
-      )}
     </div>
   );
 }
