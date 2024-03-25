@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoginModal from '../Login/LoginModal';
+import RegisterModal from "../Register/RegisterModal";
 import Loader from "../Loader/Loader";
 import zoom from "../../images/zoom-in.webp";
 import './ViewProduct.css';
@@ -9,6 +10,7 @@ function ViewProduct({ figureId }) {
   const [currentImage, setCurrentImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const discount = 0.8;
@@ -37,6 +39,15 @@ function ViewProduct({ figureId }) {
 
   const handleImageClick = (img) => {
     setCurrentImage(img);
+  };
+
+  const handleRegisterClick = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true);
+  };
+
+  const handleRegisterModalClose = () => {
+    setIsRegisterModalOpen(false);
   };
 
   const addToCart = async () => {
@@ -129,7 +140,15 @@ function ViewProduct({ figureId }) {
           <img src={`/resources/figures/${currentImage}`} alt="Imagen ampliada" className="modal-image" />
         </div>
       )}
-      {isLoginModalOpen && <LoginModal onClose={() => setIsLoginModalOpen(false)} />}
+      {isLoginModalOpen && (
+        <LoginModal 
+          onClose={() => setIsLoginModalOpen(false)} 
+          onRegisterClick={handleRegisterClick}
+        />
+      )}
+      {isRegisterModalOpen && (
+        <RegisterModal onClose={handleRegisterModalClose} />
+      )}
     </div>
   );
 }

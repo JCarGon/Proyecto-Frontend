@@ -1,5 +1,5 @@
 .promo-image {
-  width: 100vw;
+  width: 95vw;
   object-fit: fill;
   margin: 0px auto -60px auto;
   -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
