@@ -110,14 +110,16 @@
 .image-thumbnails img {
   cursor: pointer;
   margin: 5px;
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
 .image-thumbnails img.active-thumbnail {
-  border: 1px solid blue;
+  border: 2px solid black;
+  width: 150px;
+  height: 150px;
 }
 
 .open-modal-btn {
@@ -149,7 +151,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,17 +160,32 @@
 
 .modal-image {
   width: 70vw;
-  height: 95vh;
+  height: 90vh;
   object-fit: contain;
+}
+
+.prev-button, .next-button {
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  font-size: 40px;
+  color: #fff;
+  background-color: #5192F5;
+  cursor: pointer;
 }
 
 .close-modal-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 30px;
+  right: 50px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
   font-size: 40px;
+  text-align: center;
+  background-color: #5192F5;
+  color: white;
   cursor: pointer;
-  color: black;
   transition: transform 300ms ease-out;
 }
 

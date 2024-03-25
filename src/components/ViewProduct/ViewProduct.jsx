@@ -12,10 +12,30 @@ function ViewProduct({ figureId }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [allImages, setAllImages] = useState([]);
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const discount = 0.8;
 
-  const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenModal = () => {
+    const currentIndex = allImages.indexOf(currentImage);
+    setImageIndex(currentIndex);
+    setIsModalOpen(true);
+  };
+
+  const handleNextImage = () => {
+    setImageIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      return nextIndex % allImages.length;
+    });
+  };
+
+  const handlePrevImage = () => {
+    setImageIndex((prevIndex) => {
+      const nextIndex = prevIndex - 1;
+      return nextIndex < 0 ? allImages.length - 1 : nextIndex;
+    });
+  };
 
   const handleCloseModal = () => setIsModalOpen(false);
 
@@ -27,6 +47,7 @@ function ViewProduct({ figureId }) {
         const data = await response.json();
         setFigureData(data);
         setCurrentImage(data.principalImage);
+        setAllImages([data.principalImage, ...data.images]);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching figure data:", error);
@@ -137,7 +158,13 @@ function ViewProduct({ figureId }) {
       {isModalOpen && (
         <div className="modal">
           <span className="close-modal-btn" onClick={handleCloseModal}>X</span>
-          <img src={`/resources/figures/${currentImage}`} alt="Imagen ampliada" className="modal-image" />
+          <button className="prev-button" onClick={handlePrevImage}>&lt;</button>
+          <img 
+            src={`/resources/figures/${allImages[imageIndex]}`} 
+            alt="Imagen ampliada" 
+            className="modal-image" 
+          />
+          <button className="next-button" onClick={handleNextImage}>&gt;</button>
         </div>
       )}
       {isLoginModalOpen && (
