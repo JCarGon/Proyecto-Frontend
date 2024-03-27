@@ -13,12 +13,46 @@
 }
 
 .quienes-somos-container img {
-  max-width: 100%;
+  width: 500px;
   height: auto;
 }
 
 .waw-text {
-  margin: 20px 400px;
+  margin: 20px 100px;
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+@media (width <= 1440px) {
+  .quienes-somos-container img {
+    width: 400px;
+  }
+}
+
+@media (width <= 1100px) {
+  .quienes-somos-container img {
+    width: 300px;
+  }
+}
+
+@media (width <= 800px) {
+  .waw-title {
+    margin-top: 120px;
+    font-size: 2.5rem;
+  }
+}
+
+@media (width <= 500px) {
+  .waw-title {
+    font-size: 2rem;
+  }
+
+  .waw-text {
+    margin: 20px 50px;
+    font-size: 1rem;
+  }
+
+  .quienes-somos-container img {
+    width: 220px;
+  }
 }

@@ -83,3 +83,11 @@
     margin-top: 20px;
   }
 }
+
+@media (width <= 500px) {
+  .footer img {
+    transform: scale(0.6);
+  }
+
+  .social-icons a img:hover, .footer-logo:hover {transform: scale(0.6);}
+}
