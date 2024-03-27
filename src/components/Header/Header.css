@@ -245,11 +245,12 @@ a {text-decoration: none;}
 @media (width <= 800px) {
   .header-container {
     position: fixed;
-    padding-top: 20px;
-    padding-bottom: 20px;
     justify-content: start;
     width: 100%;
+    top: 0px;
     z-index: 1;
+    padding-top: 30px;
+    padding-bottom: 20px;
     background-color: #F1D8A3;
     box-shadow: 0 0 8px 8px #F1D8A3;
   }
@@ -260,6 +261,11 @@ a {text-decoration: none;}
 
   .search-bar {
     max-width: 65%;
+  }
+
+  .search-bar input {
+    padding: 10px;
+    font-size: 0.85rem;
   }
 
   .user-icon, .cart-icon {

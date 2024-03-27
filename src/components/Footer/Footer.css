@@ -1,9 +1,9 @@
 .footer {
-  text-align: center;
-  padding: 20px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+  padding: 20px 50px;
 }
 
 .footer img {
@@ -23,7 +23,7 @@
 
 .contact-info p {
   font-size: 24px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .social-icons {
@@ -42,3 +42,44 @@
 }
 
 .social-icons a img:hover, .footer-logo:hover {transform: scale(1.2);}
+
+@media (width <= 850px) {
+  .footer {
+    padding: 20px 20px;
+  }
+
+  .footer img {
+    transform: scale(0.7);
+  }
+
+  .social-icons a img:hover, .footer-logo:hover {transform: scale(0.7);}
+
+  .contact-info p {
+    font-size: 18px;
+    margin: 0 auto;
+  }
+
+  .social-icons a img {
+    margin-right: 0px;
+  }
+}
+
+@media (width <= 700px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+  }
+
+  .social-icons {
+    margin-bottom: 0px;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+  }
+}

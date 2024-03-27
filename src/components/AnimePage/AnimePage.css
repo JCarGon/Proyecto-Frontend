@@ -4,6 +4,20 @@
 }
 
 .animePage-container img {
-  width: 20vw;
-  margin: 40px auto -50px auto;
+  width: 400px;
+  margin: 60px auto -30px auto;
+}
+
+@media (width <= 800px) {
+  .animePage-container img {
+    width: 350px;
+    margin: 130px auto 0px auto;
+  }
+}
+
+@media (width <= 400px) {
+  .animePage-container img {
+    width: 280px;
+    margin: 130px auto 0px auto;
+  }
 }
