@@ -110,14 +110,12 @@
 .image-thumbnails img {
   cursor: pointer;
   margin: 5px;
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   object-fit: contain;
-  border: 2px solid transparent;
 }
 
 .image-thumbnails img.active-thumbnail {
-  border: 2px solid black;
   width: 150px;
   height: 150px;
 }
