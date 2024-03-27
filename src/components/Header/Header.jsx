@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import search from "../../images/search.webp";
@@ -83,6 +83,26 @@ function Header() {
       setIsLoginModalOpen(true);
     }
   };
+
+  useEffect(() => {
+    if (isLoginModalOpen) {
+      document.querySelector('.header-container-responsive').style.zIndex = '0';
+      document.querySelector('.nav-container').style.zIndex = '0';
+    } else {
+      document.querySelector('.header-container-responsive').style.zIndex = '';
+      document.querySelector('.nav-container').style.zIndex = '';
+    }
+  }, [isLoginModalOpen]);
+
+  useEffect(() => {
+    if (isRegisterModalOpen) {
+      document.querySelector('.header-container-responsive').style.zIndex = '0';
+      document.querySelector('.nav-container').style.zIndex = '0';
+    } else {
+      document.querySelector('.header-container-responsive').style.zIndex = '';
+      document.querySelector('.nav-container').style.zIndex = '';
+    }
+  }, [isRegisterModalOpen]);
 
   return (
     <div>
