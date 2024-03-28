@@ -5,7 +5,7 @@
   margin-top: 20px;
 }
 
-h2 {
+.user-page-content h2 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -18,13 +18,13 @@ h2 {
   width: 400px;
   margin: 20px auto;
   padding: 20px;
-  border: 2px solid black;
   background: rgba( 255, 255, 255, 0.1 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.3 );
   backdrop-filter: blur( 2px );
   -webkit-backdrop-filter: blur( 2px );
   border-radius: 20px;
-  border: 2px solid rgba( 255, 255, 255, 0.2 );
+  border: 2px solid  white;
+  background: rgba( 255, 255, 255, 0.3 );
 }
 
 .user-info p, .purchase-info p {
@@ -40,7 +40,7 @@ h2 {
 
 .purchases-info {
   display: grid;
-  grid-template-columns: 600px 600px;
+  grid-template-columns: 400px 400px;
   justify-content: space-around;
 }
 
@@ -59,3 +59,29 @@ h2 {
 }
 
 .delete-user-btn:hover {background-color: #e60000;}
+
+@media (width <= 1100px) {
+  .user-info, .purchase-info {
+    width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+}
+
+@media (width <= 850px) {
+  .user-page-content h2 {
+    margin: 100px auto 20px auto;
+  }
+
+  .purchases-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+@media (width <= 400px) {
+  .user-info, .purchase-info {
+    width: 250px;
+  }
+}

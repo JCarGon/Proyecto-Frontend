@@ -16,10 +16,14 @@
   padding: 20px;
   border-radius: 10px;
   width: 600px;
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.address-modal-content h2 {
+  text-align: center;
 }
 
 .address-form input {
@@ -66,4 +70,27 @@
 .divs-modal-buttons {
   display: flex;
   justify-content: space-around;
+}
+
+@media (width <= 650px) {
+  .address-modal-content {
+    width: 400px;
+    height: 300px;
+  }
+
+  .address-input {
+    width: 380px;
+  }
+}
+
+@media (width <= 450px) {
+  .address-modal-content {
+    width: 280px;
+    height: 330px;
+  }
+
+  .address-input {
+    width: 250px;
+    font-size: 18px;
+  }
 }
