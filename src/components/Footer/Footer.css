@@ -46,6 +46,7 @@
 @media (width <= 850px) {
   .footer {
     padding: 20px 20px;
+    margin-bottom: 0px;
   }
 
   .footer img {
@@ -61,6 +62,12 @@
 
   .social-icons a img {
     margin-right: 0px;
+  }
+}
+
+@media (width <= 800px) {
+  .footer {
+    margin-bottom: 40px;
   }
 }
 

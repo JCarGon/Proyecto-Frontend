@@ -31,3 +31,38 @@
 }
 
 .home-button:hover {background-color: #5C84C1;}
+
+@media (width <= 800px) {
+  .ok-container {
+    margin-top: 150px;
+  }
+
+  .ok-container p {
+    font-size: 1.2rem;
+    max-width: 280px;
+  }
+
+  .imgOK {
+    width: 300px;
+  }
+}
+
+@media (width <= 500px) {
+  .ok-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ok-container p {
+    font-size: 1.2rem;
+    max-width: 280px;
+    margin: 20px auto;
+  }
+
+  .imgOK {
+    width: 280px;
+    margin: 20px auto;
+  }
+
+  .home-button:hover {background-color: #5192F5;}
+}

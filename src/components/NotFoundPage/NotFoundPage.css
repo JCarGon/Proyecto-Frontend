@@ -14,3 +14,36 @@
 }
 
 .imgKO {width: 500px;}
+
+@media (width <= 800px) {
+  .ko-container {
+    margin-top: 150px;
+  }
+
+  .ko-container p {
+    font-size: 1.2rem;
+    max-width: 280px;
+  }
+
+  .imgKO {
+    width: 300px;
+  }
+}
+
+@media (width <= 500px) {
+  .ko-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ko-container p {
+    font-size: 1.2rem;
+    max-width: 280px;
+    margin: 20px auto;
+  }
+
+  .imgKO {
+    width: 280px;
+    margin: 20px auto;
+  }
+}

@@ -127,7 +127,7 @@ function RegisterModal({ onClose }) {
                 required: 'La dirección es requerida',
                 pattern: {
                   value: /^c\/\s[áéíóúÁÉÍÓÚA-Za-z\s]+,\s\d+$/,
-                  message: 'La dirección debe seguir el formato "c/ ..., número"'
+                  message: 'La dirección debe seguir el formato "c/ calle, número"'
                 }
               })}
             />

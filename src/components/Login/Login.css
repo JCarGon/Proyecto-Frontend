@@ -71,11 +71,6 @@
   margin: 20px 0;
 }
 
-.register-section span {
-  display: block;
-  margin-bottom: 10px;
-}
-
 .login-image-container {
   flex: 1;
   background: url('../../images/rengoku.webp') center center no-repeat;
@@ -88,6 +83,46 @@
   align-items: center;
 }
 
-input {
-  font-size: 24px;
+@media (width <= 850px) {
+  .login-image-container {
+    display: none;
+  }
+
+  .buttonLogin:hover, .registerButton:hover {
+    background-color: #5192F5;
+  }
+}
+
+@media (width <= 600px) {
+  .login-form-container input {
+    width: 350px;
+  }
+  
+  .buttonLogin, .registerButton {
+    width: 350px;
+    height: 40px;
+    transition: none;
+    font-size: 20px;
+  }
+  
+  .separator {
+    width: 380px;
+    height: 2px;
+    margin: 50px auto 20px auto;
+  }
+}
+
+@media (width <= 400px) {
+  .login-form-container input {
+    width: 280px;
+    height: 40px;
+  }
+  
+  .buttonLogin, .registerButton {
+    width: 280px;
+  }
+  
+  .separator {
+    width: 330px;
+  }
 }

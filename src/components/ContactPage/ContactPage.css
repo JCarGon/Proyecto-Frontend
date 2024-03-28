@@ -35,12 +35,6 @@
   color: white;
 }
 
-.contact-form button {
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-
 .contact-form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -102,6 +96,8 @@ textarea {
   border: none;
   border-radius: 10px;
   background-color: #5192F5;
+  color: white;
+  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
 }
@@ -117,5 +113,229 @@ textarea {
 .visit-us p {
   font-size: 20px;
   font-weight: bold;
-  margin: 50px 0;
+  margin: 50px auto;
+}
+
+@media (width <= 900px) {
+  .contact-content h1 {
+    margin: 30px auto;
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    max-height: 550px;
+  }
+  
+  .contact-us-info {
+    font-size: 18px;
+  }
+  
+  .attrs-contact p {
+    font-size: 18px;
+  }
+  
+  .attrs-contact input {
+    width: 220px;
+    height: 25px;
+    border: 2px solid white;
+  }
+  
+  .attrs-contact input:hover {
+    border: 2px solid white;
+  }
+  
+  .attrs-contact input:focus {
+    border: 2px solid #5192F5;
+  }
+  
+  .attrs-contact span {
+    margin-left: 10px;
+    color: white;
+  }
+
+  .doubt {
+    font-size: 18px;
+  }
+  
+  textarea {
+    width: 500px;
+    height: 120px;
+    margin-top: 0px;
+  }
+  
+  .contact-form form button:hover {
+    background-color: #5192F5;
+  }
+  
+  .visit-us p {
+    font-size: 18px;
+  }
+
+  iframe {
+    width: 600px;
+    height: 350;
+  }
+}
+
+@media (width <= 800px) {
+  .contact-content h1 {
+    margin-top: 100px;
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    max-height: 550px;
+  }
+  
+  .contact-us-info {
+    font-size: 18px;
+  }
+  
+  .attrs-contact p {
+    font-size: 18px;
+  }
+  
+  .attrs-contact input {
+    width: 220px;
+    height: 25px;
+    border: 2px solid white;
+  }
+  
+  .attrs-contact input:hover {
+    border: 2px solid white;
+  }
+  
+  .attrs-contact input:focus {
+    border: 2px solid #5192F5;
+  }
+  
+  .attrs-contact span {
+    margin-left: 10px;
+    color: white;
+  }
+
+  .doubt {
+    font-size: 18px;
+  }
+  
+  textarea {
+    width: 500px;
+    height: 120px;
+    margin-top: 0px;
+  }
+  
+  .contact-form form button:hover {
+    background-color: #5192F5;
+  }
+  
+  .visit-us p {
+    font-size: 18px;
+    padding: 0 30px;
+  }
+
+  iframe {
+    width: 600px;
+    height: 350;
+  }
+}
+
+@media (width <= 600px) {
+  .contact-form {
+    max-width: 400px;
+    max-height: 550px;
+  }
+  
+  .contact-us-info {
+    font-size: 16px;
+  }
+  
+  .attrs-contact p {
+    font-size: 16px;
+  }
+  
+  .attrs-contact input {
+    width: 160px;
+    height: 20px;
+  }
+  
+  .attrs-contact span {
+    margin-left: 0px;
+  }
+
+  .doubt {
+    font-size: 16px;
+  }
+  
+  textarea {
+    width: 320px;
+  }
+  
+  .visit-us p {
+    font-size: 16px;
+  }
+
+  iframe {
+    width: 450px;
+    height: 350px;
+  }
+}
+
+@media (width <= 600px) {
+  iframe {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (width <= 500px) {
+  .contact-content h1 {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    max-width: 250px;
+    max-height: 750px;
+  }
+  
+  .contact-us-info {
+    font-size: 14px;
+  }
+  
+  .attrs-contact {
+    flex-direction: column;
+  }
+
+  .attrs-contact p {
+    font-size: 14px;
+  }
+  
+  .attrs-contact input {
+    width: 200px;
+    height: 25px;
+  }
+  
+  .attrs-contact span {
+    margin: 5px auto 10px auto;
+  }
+
+  .doubt {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    width: 220px;
+  }
+
+  .contact-form form button {
+    width: 100px;
+    font-size: 14px;
+  }
+  
+  .visit-us p {
+    font-size: 14px;
+    margin: 20px auto;
+  }
 }
