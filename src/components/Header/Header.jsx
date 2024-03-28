@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import logoEmpresa from '../../images/logo.webp';
 import search from "../../images/search.webp";
 import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
@@ -12,6 +13,7 @@ import "./Header.css";
 function Header() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -82,6 +84,15 @@ function Header() {
     } else {
       setIsLoginModalOpen(true);
     }
+  };
+
+  const handleOpenSearchModal = () => setIsSearchModalOpen(true);
+  const handleCloseSearchModal = () => setIsSearchModalOpen(false);
+
+  const handleSearchSubmit = (e) => {
+      e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+      navigate(`/search/character/${searchText}`);
+      handleCloseSearchModal();
   };
 
   useEffect(() => {
@@ -155,6 +166,20 @@ function Header() {
         <Link to="/">
           <img className="go-home" alt="icono de una casa para ir a Inicio" src={home} />
         </Link>
+        <div className="search-bar-responsive">
+          <input
+            type="text"
+            placeholder=""
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button className="search" onClick={handleOpenSearchModal}>
+            <img src={search} alt="icono de búsqueda" />
+          </button>
+        </div>
+        <Link to="/">
+          <img className="logo-header-responsive" src={logoEmpresa} alt="logoEmpresa"/>
+        </Link>
         <div className="user-icon-responsive" onClick={handleUserIconClick}>
           <img className="user-responsive" alt="icono de usuario para iniciar sesión o ir al perfil" src={user} />
           {showDropdown && (
@@ -169,6 +194,25 @@ function Header() {
           {cartCount > 0 && <div className="cart-counter-responsive">{cartCount}</div>}
         </div>
       </div>
+      {isSearchModalOpen && (
+        <div className="search-overlay">
+          <div className="search-modal">
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                type="text"
+                placeholder="Buscar..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                autoFocus
+              />
+              <div className="buttons-container">
+                <button type="submit">Buscar</button>
+                <button onClick={handleCloseSearchModal}>Cerrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
