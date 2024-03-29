@@ -117,31 +117,60 @@ function ViewProduct({ figureId }) {
   const { name, character, company, price, dimensions, material, brand, amount } = figureData;
 
   return (
-    <div className="view-container">
-      <div className="images-carrousel">
-        <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} onClick={handleOpenModal} />
-        <div className="image-thumbnails">
-          {[figureData.principalImage, ...figureData.images].map((img, index) => (
-            <img
-              key={index}
-              src={`/resources/figures/${img}`}
-              alt={`Thumbnail ${index}`}
-              onClick={() => handleImageClick(img)}
-              className={currentImage === img ? 'active-thumbnail' : ''}
+    <div>
+      <div className="view-container">
+        <div className="images-carrousel">
+          <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} onClick={handleOpenModal} />
+          <div className="image-thumbnails">
+            {[figureData.principalImage, ...figureData.images].map((img, index) => (
+              <img
+                key={index}
+                src={`/resources/figures/${img}`}
+                alt={`Thumbnail ${index}`}
+                onClick={() => handleImageClick(img)}
+                className={currentImage === img ? 'active-thumbnail' : ''}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="product-principal-info">
+          <p className="view-title">{name}</p>
+          <p className="view-amount">
+            {amount > 0 ? `Stock actual: ${amount}` : 'No tenemos stock actualmente'}
+          </p>
+          <div className="prices-info">
+            <span className="original-price">{price}€</span>
+            <span className="new-price">{(price*discount).toFixed(2)}€</span>
+          </div>
+          <button 
+            className={`addToCart ${amount <= 0 ? 'disabled' : ''}`} 
+            onClick={addToCart}
+            disabled={amount <= 0}
+          >
+            <span>Añadir al carrito</span>
+          </button>
+        </div>
+        {isModalOpen && (
+          <div className="modal">
+            <span className="close-modal-btn" onClick={handleCloseModal}>X</span>
+            <button className="prev-button" onClick={handlePrevImage}>&lt;</button>
+            <img 
+              src={`/resources/figures/${allImages[imageIndex]}`} 
+              alt="Imagen ampliada" 
+              className="modal-image" 
             />
-          ))}
-        </div>
-      </div>
-      <div className="product-principal-info">
-        <p className="view-title">{name}</p>
-        <p className="view-amount">Stock actual: {amount}</p>
-        <div className="prices-info">
-          <span className="original-price">{price}€</span>
-          <span className="new-price">{(price*discount).toFixed(2)}€</span>
-        </div>
-        <button className="addToCart" onClick={addToCart}>
-          <span>Añadir al carrito</span>
-        </button>
+            <button className="next-button" onClick={handleNextImage}>&gt;</button>
+          </div>
+        )}
+        {isLoginModalOpen && (
+          <LoginModal 
+            onClose={() => setIsLoginModalOpen(false)} 
+            onRegisterClick={handleRegisterClick}
+          />
+        )}
+        {isRegisterModalOpen && (
+          <RegisterModal onClose={handleRegisterModalClose} />
+        )}
       </div>
       <div className="product-details">
         <h2>MÁS DETALLES:</h2>
@@ -152,27 +181,6 @@ function ViewProduct({ figureId }) {
         <p className="view-material">Materiales: {material}</p>
         <p className="view-dimensions">Dimensiones aproximadas: {dimensions}</p>
       </div>
-      {isModalOpen && (
-        <div className="modal">
-          <span className="close-modal-btn" onClick={handleCloseModal}>X</span>
-          <button className="prev-button" onClick={handlePrevImage}>&lt;</button>
-          <img 
-            src={`/resources/figures/${allImages[imageIndex]}`} 
-            alt="Imagen ampliada" 
-            className="modal-image" 
-          />
-          <button className="next-button" onClick={handleNextImage}>&gt;</button>
-        </div>
-      )}
-      {isLoginModalOpen && (
-        <LoginModal 
-          onClose={() => setIsLoginModalOpen(false)} 
-          onRegisterClick={handleRegisterClick}
-        />
-      )}
-      {isRegisterModalOpen && (
-        <RegisterModal onClose={handleRegisterModalClose} />
-      )}
     </div>
   );
 }

@@ -7,6 +7,10 @@ function AddressModal({ user, onCancel, onAccept }) {
   const inputStyle = {
     backgroundColor: selectedOption === 'new' ? 'white' : '#f0f0f0',
   };
+  const isValidAddress = (address) => {
+    const addressRegex = /^c\/\s.+,\s\d+$/;
+    return addressRegex.test(address);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +67,7 @@ function AddressModal({ user, onCancel, onAccept }) {
               checked={selectedOption === 'new'}
               onChange={() => setSelectedOption('new')} 
             />
-            <label htmlFor="new">Introducir otra dirección:</label>
+            <label htmlFor="new">Introducir otra dirección con el formato 'c/ calle, número':</label>
             <input 
               type="text"
               className='address-input'
@@ -75,7 +79,13 @@ function AddressModal({ user, onCancel, onAccept }) {
           </div>
           <div className='divs-modal-buttons'>
             <button type="button" className='cancel-button' onClick={onCancel}>Cancelar</button>
-            <button type="submit" className='submit-button'>Aceptar</button>
+            <button 
+              type="submit" 
+              className='submit-button' 
+              disabled={selectedOption === 'new' ? !isValidAddress(newAddress) : false}
+            >
+              Aceptar
+            </button>
           </div>
         </form>
       </div>
