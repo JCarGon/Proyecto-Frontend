@@ -90,7 +90,7 @@ function Header() {
   const handleCloseSearchModal = () => setIsSearchModalOpen(false);
 
   const handleSearchSubmit = (e) => {
-      e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+      e.preventDefault();
       navigate(`/search/character/${searchText}`);
       handleCloseSearchModal();
   };

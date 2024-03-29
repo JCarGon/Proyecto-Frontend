@@ -53,7 +53,6 @@ function UserPage() {
         const purchases = await response.json();
         setUserDataPurchases(purchases);
       } else if (response.status === 401) {
-        alert("Sesión expirada. Inicie sesión de nuevo.");
         clearUserData();
       }
     } catch (error) {

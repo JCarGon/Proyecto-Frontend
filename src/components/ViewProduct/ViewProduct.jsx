@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import LoginModal from '../Login/LoginModal';
 import RegisterModal from "../Register/RegisterModal";
 import Loader from "../Loader/Loader";
-import zoom from "../../images/zoom-in.webp";
 import './ViewProduct.css';
 
 function ViewProduct({ figureId }) {
@@ -120,8 +119,7 @@ function ViewProduct({ figureId }) {
   return (
     <div className="view-container">
       <div className="images-carrousel">
-        <button className="open-modal-btn" onClick={handleOpenModal}><img src={zoom} alt="zoom for actual figure"></img></button>
-        <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} />
+        <img className="view-image" src={`/resources/figures/${currentImage}`} alt={name} onClick={handleOpenModal} />
         <div className="image-thumbnails">
           {[figureData.principalImage, ...figureData.images].map((img, index) => (
             <img
@@ -134,26 +132,25 @@ function ViewProduct({ figureId }) {
           ))}
         </div>
       </div>
-      <div>
+      <div className="product-principal-info">
         <p className="view-title">{name}</p>
+        <p className="view-amount">Stock actual: {amount}</p>
+        <div className="prices-info">
+          <span className="original-price">{price}€</span>
+          <span className="new-price">{(price*discount).toFixed(2)}€</span>
+        </div>
+        <button className="addToCart" onClick={addToCart}>
+          <span>Añadir al carrito</span>
+        </button>
+      </div>
+      <div className="product-details">
+        <h2>MÁS DETALLES:</h2>
         <p className="view-character">Figura de {character}, personaje del manga y anime {company}</p>
         <p className="view-brand">Marca: {brand}</p>
         <p className="view-company">Franquicia: {company}</p>
         <p className="view-character-name">Nombre de personaje: {character}</p>
         <p className="view-material">Materiales: {material}</p>
-        <p className="view-dimensions">Dimensiones: {dimensions}</p>
-        <p className="view-amount">Existencias: {amount}</p>
-        <div className="price-button-container">
-          <div className="view-price">
-            <div className="prices-info">
-              <span className="original-price">{price}€</span>
-              <span className="new-price">{(price*discount).toFixed(2)}€</span>
-            </div>
-          </div>
-          <button className="addToCart" onClick={addToCart}>
-            <span>Añadir al carrito</span>
-          </button>
-        </div>
+        <p className="view-dimensions">Dimensiones aproximadas: {dimensions}</p>
       </div>
       {isModalOpen && (
         <div className="modal">
