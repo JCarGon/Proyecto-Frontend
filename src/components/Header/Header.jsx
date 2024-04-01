@@ -127,6 +127,11 @@ function Header() {
             placeholder="Buscar una figura por nombre..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSearchClick();
+              }
+            }}
           />
           <button className="search" onClick={handleSearchClick}>
             <img src={search} alt="icono de búsqueda" />
