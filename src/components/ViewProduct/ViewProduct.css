@@ -62,20 +62,28 @@
 }
 
 .prev-button, .next-button {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  margin: 0px auto;
-  padding-top: 0px;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  padding: 0px;
   border: none;
   border-radius: 10px;
   font-size: 40px;
   color: #fff;
   background-color: #5192F5;
   cursor: pointer;
+}
+
+.prev-button {
+  left: .4em;
+}
+
+.next-button {
+  right: .4em;
 }
 
 .close-modal-btn {
@@ -309,6 +317,11 @@
     height: 100px;
   }
 
+  .close-modal-btn:hover {
+    transform: scale(1);
+    transition: none;
+  }
+
   .view-title {
     padding: 10px 100px;
   }
@@ -377,6 +390,11 @@
   .image-thumbnails img.active-thumbnail {
     width: 70px;
     height: 70px;
+  }
+
+  .modal-image {
+    width: 65vw;
+    height: 80vh;
   }
 
   .addToCart {

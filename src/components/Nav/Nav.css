@@ -140,8 +140,8 @@
 @media (width <= 800px) {
   .nav-container {
     position: fixed;
-    top: 5px;
-    right: 20px;
+    top: .4em;
+    right: 2em;
     z-index: 1;
     padding: 20px 0px;
     background-color: transparent;
@@ -183,7 +183,7 @@
   }
 
   .nav-links.open .nav-link {
-    width: max-content;
+    width: 190px;
     margin-bottom: 70px;
   }
 

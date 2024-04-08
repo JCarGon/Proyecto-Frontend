@@ -477,3 +477,9 @@ a {text-decoration: none;}
     right: 18px;
   }
 }
+
+@media (width <= 400px) {
+  .nombreEmpresa {
+    font-size: 1.8em;
+  }
+}
